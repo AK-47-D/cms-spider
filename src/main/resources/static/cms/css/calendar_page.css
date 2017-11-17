@@ -1,0 +1,26 @@
+body {
+    padding-top: 70px;
+}
+
+.news-item__main__title {
+    text-align: left;
+    text-indent: .5%;
+}
+
+.week-day li span {
+    cursor: pointer;
+}
+
+.list_header {
+    text-align: center;
+    background: #f6f9fb;
+    color: #b2b8cf;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 30px;
+    height: 30px;
+}
+
+#eventList{
+    cursor: default;
+}
