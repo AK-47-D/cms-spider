@@ -1,46 +1,8 @@
-CREATE SCHEMA `ak47_cms` DEFAULT CHARACTER SET utf8 ;
+CREATE SCHEMA `cms_spider` DEFAULT CHARACTER SET utf8 ;
+ALTER SCHEMA `cms_spider`  DEFAULT CHARACTER SET utf8mb4  DEFAULT COLLATE utf8mb4_general_ci ;
 
-ALTER SCHEMA `ak47_cms`  DEFAULT CHARACTER SET utf8mb4  DEFAULT COLLATE utf8mb4_general_ci ;
+INSERT INTO `cms_spider`.`tech_article_tag` (`id`, `gmt_create`, `gmt_modified`, `tag_detail`, `tag_id`)
+VALUES ('1', now(), now(), '编程技术', '1');
 
-
-
-SHOW TABLES;
-
-DESC stock_index;
-
-DESC news_artical;
-
-SELECT *
-FROM news_artical;
-
-SELECT *
-FROM stock_index;
-
-SELECT count(*)
-FROM news_artical;
-
-select count(*) from news_artical;
-SELECT *
-FROM finance_info_calendar;
-
-DELETE from finance_info_calendar;
-
-
-SELECT count(*)
-FROM wallstreet_article;
-
-
-
-SELECT *
-FROM wallstreet_article;
-
-SELECT *
-FROM center_bank_rate;
-
-
-DELETE from focus_live_news;
-
-SELECT count(*) from image WHERE source_type = 2;
-
-
-SELECT * FROM ak47_cms.tech_article;
+INSERT INTO `cms_spider`.`cron_trigger` (`cron`, `gmt_modify`, `gmt_create`,`is_deleted`, `task_id`)
+VALUES ('0 */1 * * * ?',now(), now(), 0,'1');

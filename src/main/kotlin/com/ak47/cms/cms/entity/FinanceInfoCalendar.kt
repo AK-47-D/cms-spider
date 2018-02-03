@@ -8,13 +8,14 @@ import javax.persistence.*
  */
 
 @Entity
-@Table(name = "finance_info_calendar", indexes = arrayOf(Index(name = "item_id", unique = true, columnList = "item_id")))
+@Table(name = "finance_info_calendar",
+        indexes = arrayOf(Index(name = "item_id", unique = true, columnList = "item_id")))
 class FinanceInfoCalendar {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long = -1
 
-    @Column(name = "item_id", unique = true)
+    @Column(name = "item_id", unique = true, length = 100)
     var item_id = ""
 
     @Column(name = "importance")

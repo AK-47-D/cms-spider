@@ -1,9 +1,10 @@
 buildscript {
 	ext {
-		kotlinVersion = '1.1.51'
-		springBootVersion = '2.0.0.BUILD-SNAPSHOT'
+		kotlinVersion = '1.2.0'
+		springBootVersion = '2.0.0.M7'
 	}
 	repositories {
+		mavenLocal() // 使用本地仓库
 		mavenCentral()
 		maven { url "https://repo.spring.io/snapshot" }
 		maven { url "https://repo.spring.io/milestone" }
@@ -12,6 +13,7 @@ buildscript {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
 		classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlinVersion}")
 		classpath("org.jetbrains.kotlin:kotlin-allopen:${kotlinVersion}")
+		classpath('com.easy.springboot:demo_gradle_plugin_kor:1.0-SNAPSHOT') // 添加插件依赖
 	}
 }
 
@@ -20,6 +22,8 @@ apply plugin: 'kotlin-spring'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
+apply plugin: 'com.springboot.kor' //应用插件，名称对应到com.springboot.kor.properties属性文件名
+
 
 group = 'com.ak47.cms'
 version = '0.0.1-SNAPSHOT'
@@ -32,6 +36,7 @@ compileTestKotlin {
 }
 
 repositories {
+	mavenLocal() // 使用本地仓库
 	mavenCentral()
 	maven { url "https://repo.spring.io/snapshot" }
 	maven { url "https://repo.spring.io/milestone" }
@@ -39,18 +44,14 @@ repositories {
 
 
 dependencies {
-	compile('org.springframework.boot:spring-boot-starter-data-elasticsearch')
+	compile('org.springframework.boot:spring-boot-starter-actuator')
 	compile('org.springframework.boot:spring-boot-starter-data-jpa')
 	compile('org.springframework.boot:spring-boot-starter-freemarker')
-	compile('org.springframework.boot:spring-boot-starter-mail')
-	compile('org.springframework.boot:spring-boot-starter-quartz')
-//	compile('org.springframework.boot:spring-boot-starter-security')
 	compile('org.springframework.boot:spring-boot-starter-web')
-	compile("org.jetbrains.kotlin:kotlin-stdlib-jre8")
-	compile("org.jetbrains.kotlin:kotlin-reflect")
+	compile("org.jetbrains.kotlin:kotlin-stdlib-jre8:${kotlinVersion}")
+	compile("org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}")
 	runtime('mysql:mysql-connector-java')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
-//	testCompile('org.springframework.security:spring-security-test')
 
 	compile('com.alibaba:fastjson:1.1.64.android')
 	compile 'com.squareup.okhttp3:okhttp:3.8.1'
@@ -58,9 +59,10 @@ dependencies {
 	compile group: 'org.jetbrains.kotlinx', name: 'kotlinx-coroutines-core', version: '0.19.2'
 	compile group: 'net.sourceforge.htmlunit', name: 'htmlunit', version: '2.27'
 	compile group: 'org.jsoup', name: 'jsoup', version: '1.10.3'
-	compile group: 'org.apache.shiro', name: 'shiro-spring', version: '1.4.0'
-	compile group: 'org.apache.shiro', name: 'shiro-ehcache', version: '1.4.0'
 
-	compile('org.springframework.boot:spring-boot-starter-actuator')
+}
 
+// 自定义 kor 插件的输入参数
+korArgs {
+	entity = 'CronTrigger'
 }

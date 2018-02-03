@@ -15,7 +15,7 @@ class FocusLiveNews {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long = -1
 
-    @Column(name = "item_id", unique = true)
+    @Column(name = "item_id", unique = true,length = 100)
     var item_id = ""
 
     @Column(name = "content")

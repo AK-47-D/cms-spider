@@ -9,7 +9,7 @@ class StockIndex {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long = -1
 
-    @Column(name = "index_code", unique = true)
+    @Column(name = "index_code", unique = true, length = 100)
     var index_code: String = ""
 
     @Column(name = "prod_name")

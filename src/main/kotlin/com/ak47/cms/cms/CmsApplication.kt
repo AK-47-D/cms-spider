@@ -1,6 +1,8 @@
 package com.ak47.cms.cms
 
+import com.ak47.cms.cms.dao.CronTriggerDao
 import com.ak47.cms.cms.dao.SearchKeyWordRepository
+import com.ak47.cms.cms.entity.CronTrigger
 import com.ak47.cms.cms.entity.SearchKeyWord
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.CommandLineRunner
@@ -11,7 +13,6 @@ import org.springframework.core.annotation.Order
 import org.springframework.scheduling.annotation.EnableScheduling
 import org.springframework.stereotype.Component
 import org.springframework.transaction.annotation.EnableTransactionManagement
-import org.springframework.transaction.annotation.Transactional
 import java.io.File
 
 @SpringBootApplication
@@ -23,19 +24,20 @@ fun main(args: Array<String>) {
     runApplication<CmsApplication>(*args)
 }
 
-
 @Component
-@Order(value = Ordered.LOWEST_PRECEDENCE)
+@Order(value = Ordered.HIGHEST_PRECEDENCE)
 class initSearchKeyWordRunner : CommandLineRunner {
     @Autowired lateinit var searchKeyWordRepository: SearchKeyWordRepository
-
-    @Transactional
     override fun run(vararg args: String) {
-        var keyWords = File("搜索关键词列表.data").readLines()
-        keyWords.forEach {
-            val SearchKeyWord = SearchKeyWord()
-            SearchKeyWord.keyWord = it
-            searchKeyWordRepository.saveOnNoDuplicateKey(it)
+        try {
+            var keyWords = File("搜索关键词列表.data").readLines()
+            keyWords.forEach {
+                val SearchKeyWord = SearchKeyWord()
+                SearchKeyWord.keyWord = it
+                searchKeyWordRepository.saveOnNoDuplicateKey(it)
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
         }
     }
 }
