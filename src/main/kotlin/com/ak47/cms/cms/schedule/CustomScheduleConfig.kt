@@ -20,6 +20,8 @@ import java.time.LocalDateTime
 @Configuration
 @EnableScheduling
 class CustomScheduleConfig : SchedulingConfigurer {
+    val CRAW_JIANSHU_TECH_ARTICLE_TASK_ID = 1
+
     val logger = LoggerFactory.getLogger(CustomScheduleConfig::class.java)
 
     @Autowired lateinit var CronTriggerDao: CronTriggerDao
@@ -38,7 +40,7 @@ class CustomScheduleConfig : SchedulingConfigurer {
             //2 设置执行周期(Trigger)
             { triggerContext ->
                 //3 从数据库获取执行周期
-                val cron = CronTriggerDao.findByTaskId(1)
+                val cron = CronTriggerDao.findByTaskId(CRAW_JIANSHU_TECH_ARTICLE_TASK_ID)
                 //4 合法性校验
                 if (StringUtils.isEmpty(cron)) {
                     // Omitted Code ..
