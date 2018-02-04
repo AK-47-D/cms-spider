@@ -6,3 +6,5 @@ VALUES ('1', now(), now(), '编程技术', '1');
 
 INSERT INTO `cms_spider`.`cron_trigger` (`cron`, `gmt_modify`, `gmt_create`,`is_deleted`, `task_id`)
 VALUES ('0 */1 * * * ?',now(), now(), 0,'1');
+
+SELECT * from cron_trigger;

@@ -1,8 +1,6 @@
 package com.ak47.cms.cms
 
-import com.ak47.cms.cms.dao.CronTriggerDao
 import com.ak47.cms.cms.dao.SearchKeyWordRepository
-import com.ak47.cms.cms.entity.CronTrigger
 import com.ak47.cms.cms.entity.SearchKeyWord
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.CommandLineRunner
