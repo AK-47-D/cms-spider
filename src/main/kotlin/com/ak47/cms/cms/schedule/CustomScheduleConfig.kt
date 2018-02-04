@@ -40,38 +40,38 @@ class CustomScheduleConfig : SchedulingConfigurer {
         taskRegistrar.setScheduler(Executors.newScheduledThreadPool(10))
 
         taskRegistrar.addTriggerTask(
-            //1 添加任务执行 Runnable
-            {
-                println("${df.format(Date())} 执行任务 1，线程： ${Thread.currentThread().name}")
-//                crawTechArticleService.doCrawJianShuTechArticle()
-            },
-            //2 设置执行周期(Trigger)
-            { triggerContext ->
-                //3 从数据库获取执行周期
-                val cron = cronTriggerDao.findByTaskId(CRAW_JIANSHU_TECH_ARTICLE_TASK_ID)
-                // 4 合法性校验
-                var cronExpression: String? = DEFAULT_CRON
-                if (!StringUtils.isEmpty(cron?.cron)) {
-                    cronExpression = cron?.cron
+                //1 添加任务执行 Runnable
+                {
+                    println("${df.format(Date())} 执行任务 1，线程： ${Thread.currentThread().name}")
+                    crawTechArticleService.doCrawJianShuTechArticle()
+                },
+                //2 设置执行周期(Trigger)
+                { triggerContext ->
+                    //3 从数据库获取执行周期
+                    val cron = cronTriggerDao.findByTaskId(CRAW_JIANSHU_TECH_ARTICLE_TASK_ID)
+                    // 4 合法性校验
+                    var cronExpression: String? = DEFAULT_CRON
+                    if (!StringUtils.isEmpty(cron?.cron)) {
+                        cronExpression = cron?.cron
+                    }
+                    //5 返回执行周期(Date)
+                    CronTrigger(cronExpression).nextExecutionTime(triggerContext)
                 }
-                //5 返回执行周期(Date)
-                CronTrigger(cronExpression).nextExecutionTime(triggerContext)
-            }
         )
 
         taskRegistrar.addTriggerTask( // 添加任务2
-            {
-                println("${df.format(Date())} 执行任务 2，线程： ${Thread.currentThread().name}")
-//                crawImagesService.doGankImageCrawJob()
-            },
-            { triggerContext ->
-                val cron = cronTriggerDao.findByTaskId(GANK_IMAGE_CRAW_TASK_ID)
-                var cronExpression: String? = DEFAULT_CRON
-                if (!StringUtils.isEmpty(cron?.cron)) {
-                    cronExpression = cron?.cron
+                {
+                    println("${df.format(Date())} 执行任务 2，线程： ${Thread.currentThread().name}")
+                    crawImagesService.doGankImageCrawJob()
+                },
+                { triggerContext ->
+                    val cron = cronTriggerDao.findByTaskId(GANK_IMAGE_CRAW_TASK_ID)
+                    var cronExpression: String? = DEFAULT_CRON
+                    if (!StringUtils.isEmpty(cron?.cron)) {
+                        cronExpression = cron?.cron
+                    }
+                    CronTrigger(cronExpression).nextExecutionTime(triggerContext)
                 }
-                CronTrigger(cronExpression).nextExecutionTime(triggerContext)
-            }
         )
 
     }

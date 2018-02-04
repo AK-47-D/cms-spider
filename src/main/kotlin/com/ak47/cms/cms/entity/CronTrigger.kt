@@ -17,6 +17,5 @@ class CronTrigger {
 
     @Column(unique = true)
     var taskId: Int = -1
-    @Column(unique = true, length = 100)
     var cron: String = ""
 }
