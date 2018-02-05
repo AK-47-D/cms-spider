@@ -52,7 +52,7 @@ class ApiController {
         @RequestParam(value = "size", defaultValue = "10") size: Int
     ): Page<WallstreetArticle> {
         val sort = Sort(Sort.Direction.DESC, "id")
-        val pageable = PageRequest.of(page, size, sort)
+        val pageable = PageRequest(page, size, sort)
         return WallstreetArticleRepository.findWallstreetArticlePage(pageable)
     }
 
@@ -67,7 +67,7 @@ class ApiController {
         @RequestParam(value = "type", defaultValue = "global") type: String
     ): Page<FocusLiveNews> {
         val sort = Sort(Sort.Direction.DESC, "id")
-        val pageable = PageRequest.of(page, size, sort)
+        val pageable = PageRequest(page, size, sort)
         return FocusLiveNewsRespository.findFocusLiveNewsPage(type, pageable)
     }
 }

@@ -58,14 +58,14 @@ class ImageController {
 
     private fun getPageResult(page: Int, size: Int): Page<Image> {
         val sort = Sort(Sort.Direction.DESC, "id")
-        val pageable = PageRequest.of(page, size, sort)
+        val pageable = PageRequest(page, size, sort)
         return imageRepository.findAll(pageable)
     }
 
     private fun getPageResult(page: Int, size: Int, searchText: String): Page<Image> {
         val sort = Sort(Sort.Direction.DESC, "id")
-        // 注意：PageRequest.of(page,size,sort) page 默认是从0开始
-        val pageable = PageRequest.of(page, size, sort)
+        // 注意：PageRequest(page,size,sort) page 默认是从0开始
+        val pageable = PageRequest(page, size, sort)
         if (searchText == "") {
             return imageRepository.findAll(pageable)
         } else {
@@ -75,8 +75,8 @@ class ImageController {
 
     private fun getGankPageResult(page: Int, size: Int, searchText: String): Page<Image> {
         val sort = Sort(Sort.Direction.DESC, "id")
-        // 注意：PageRequest.of(page,size,sort) page 默认是从0开始
-        val pageable = PageRequest.of(page, size, sort)
+        // 注意：PageRequest(page,size,sort) page 默认是从0开始
+        val pageable = PageRequest(page, size, sort)
         if (searchText == "") {
 
             val findGankAll = imageRepository.findGankAll(pageable)
@@ -88,7 +88,7 @@ class ImageController {
 
     private fun getFavoritePageResult(page: Int, size: Int, searchText: String): Page<Image> {
         val sort = Sort(Sort.Direction.DESC, "id")
-        val pageable = PageRequest.of(page, size, sort)
+        val pageable = PageRequest(page, size, sort)
         if (searchText == "") {
             val allFavorite = imageRepository.findAllFavorite(pageable)
             return allFavorite
@@ -111,7 +111,7 @@ class ImageController {
 
     private fun getPageResultByType(page: Int, size: Int, searchText: String, sourceType: Int): Page<Image> {
         val sort = Sort(Sort.Direction.DESC, "id")
-        val pageable = PageRequest.of(page, size, sort)
+        val pageable = PageRequest(page, size, sort)
         if (searchText == "") {
             return imageRepository.findAllImageByType(sourceType, pageable)
         } else {

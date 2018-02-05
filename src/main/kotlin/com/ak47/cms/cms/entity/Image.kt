@@ -5,7 +5,6 @@ import javax.persistence.*
 
 @Entity
 @Table(indexes = arrayOf(
-        Index(name = "idx_url", unique = true, columnList = "url"),
         Index(name = "idx_category", unique = false, columnList = "category")))
 class Image {
     @Id
@@ -18,7 +17,7 @@ class Image {
     var category: String = ""
     var isFavorite: Int = 0
 
-    @Column(length = 250, unique = true, nullable = false)
+    @Column(length = 500, unique = true, nullable = false)
     var url: String = ""
 
     var gmtCreated: Date = Date()

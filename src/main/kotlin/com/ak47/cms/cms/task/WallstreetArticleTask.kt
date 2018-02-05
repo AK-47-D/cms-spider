@@ -63,7 +63,7 @@ class WallstreetArticleTask {
         try {
 
             val obj = JSON.parse(json) as Map<*, *>
-            val items = ((obj["data"] as Map<*, *>) as Map<*, *>)["items"] as JSONArray
+            val items = (obj["data"] as Map<*, *>)["items"] as JSONArray
             items.forEach {
 
                 val item_id = (it as Map<*, *>)["id"].toString()

@@ -40,8 +40,8 @@ class SearchKeyWordController {
 
     private fun getPageResult(page: Int, size: Int, searchText: String): Page<SearchKeyWord> {
         val sort = Sort(Sort.Direction.DESC, "id")
-        // 注意：PageRequest.of(page,size,sort) page 默认是从0开始
-        val pageable = PageRequest.of(page, size, sort)
+        // 注意：PageRequest(page,size,sort) page 默认是从0开始
+        val pageable = PageRequest(page, size, sort)
         if (searchText == "") {
             return searchKeyWordRepository.findAll(pageable)
         } else {

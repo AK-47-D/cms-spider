@@ -42,7 +42,7 @@ interface ImageRepository : PagingAndSortingRepository<Image, Long> {
     @Modifying
     @Transactional
     @Query("update #{#entityName} a set a.isDeleted=1 where a.id=:id")
-    fun delete(@Param("id") id: Long)
+    override fun delete(@Param("id") id: Long)
 
     @Query("SELECT a from #{#entityName} a where a.isDeleted=0 and a.sourceType=1 order by rand()")
     fun findGankAll(pageable: Pageable): Page<Image>

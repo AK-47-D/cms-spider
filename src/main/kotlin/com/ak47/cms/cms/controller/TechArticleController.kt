@@ -22,7 +22,7 @@ class TechArticleController {
             @RequestParam(value = "size", defaultValue = "10") size: Int,
             @RequestParam(value = "searchText", defaultValue = "") searchText: String
     ): Page<TechArticleDto> {
-        val pageRequest = PageRequest.of(page, size)
+        val pageRequest = PageRequest(page, size)
 
         return when (searchText) {
             "" -> TechArticleRepository.listTechArticleDto(pageRequest)
