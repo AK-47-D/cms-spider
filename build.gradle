@@ -62,6 +62,7 @@ dependencies {
 
     // https://mvnrepository.com/artifact/de.codecentric/spring-boot-admin-starter-client
     compile group: 'de.codecentric', name: 'spring-boot-admin-starter-client', version: '1.5.7'
+    compile('org.springframework.boot:spring-boot-starter-aop')
 }
 
 // 自定义 kor 插件的输入参数
