@@ -56,6 +56,8 @@ interface ImageRepository : PagingAndSortingRepository<Image, Long> {
     @Query("SELECT a from #{#entityName} a where a.sourceType=:source_type  and a.isDeleted=0 and a.category like %:searchText% order by rand()")
     fun searchImageByType(@Param("source_type") source_type: Int, @Param("searchText") searchText: String, pageable: Pageable): Page<Image>
 
+    @Query(value = "select 0", nativeQuery = true)
+    fun selectTest():Int
 }
 
 

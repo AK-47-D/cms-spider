@@ -37,7 +37,15 @@ class CrawTechArticleService {
                     "http://www.jianshu.com/c/2e2ddd6ba967",
                     "http://www.jianshu.com/c/ef7836bf3e22",
                     "http://www.jianshu.com/c/38d96caffb2f",
-                    "http://www.jianshu.com/c/04cb7410c597")
+                    "http://www.jianshu.com/c/04cb7410c597",
+                    "https://www.jianshu.com/c/e6dbcad79e75",
+                    "https://www.jianshu.com/c/7ac1a6814c56",
+                    "https://www.jianshu.com/c/4e30dc452e35",
+                    "https://www.jianshu.com/c/2d0dcd345280",
+                    "https://www.jianshu.com/c/3f476518d832",
+                    "https://www.jianshu.com/c/b5d1bf82b879",
+                    "https://www.jianshu.com/c/3f69deddbed3"
+            )
 
             简书专题URLs.forEach {
                 for (page in 1..20) {
