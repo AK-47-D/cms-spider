@@ -13,6 +13,7 @@ import org.jsoup.Jsoup
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
+import java.io.File
 import java.net.URL
 import java.text.SimpleDateFormat
 import java.util.*
@@ -136,6 +137,25 @@ class CrawImageService {
 
     private fun getByteArray(url: String): ByteArray {
         val urlObj = URL(url)
-        return urlObj.readBytes()
+        val imgBytes = urlObj.readBytes()
+
+        Thread {
+            val targetPath = "${System.getProperty("user.home")}/Pictures/gank/"
+            val f = File(targetPath)
+            if (!f.exists()) {
+                f.mkdir()
+            }
+
+            val timestamp = System.currentTimeMillis()
+            val filename = "$targetPath$timestamp.jpeg"
+            val imgFile = File(filename)
+            if (!imgFile.exists()) {
+                imgFile.createNewFile()
+            }
+
+            imgFile.writeBytes(imgBytes)
+        }.start()
+
+        return imgBytes
     }
 }
