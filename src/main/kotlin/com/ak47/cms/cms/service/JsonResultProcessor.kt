@@ -4,30 +4,28 @@ import com.ak47.cms.cms.api.CrawlerWebClient
 import com.alibaba.fastjson.JSON
 import com.alibaba.fastjson.JSONArray
 import com.ak47.cms.cms.dto.ImageCategoryAndUrl
-import java.net.URL
-import java.nio.charset.Charset
 
 object JsonResultProcessor {
 
     val crawlerWebClient = CrawlerWebClient.instanceCrawlerClient()
 
 
-    fun getBaiduImageCategoryAndUrlList(url: String): MutableList<ImageCategoryAndUrl> {
-        return parseBaiduImageCategoryAndUrlList(jsonstr = getUrlContent(url))
+    fun getSogouImageCategoryAndUrlList(url: String): MutableList<ImageCategoryAndUrl> {
+        return parseSogouImageCategoryAndUrlList(jsonstr = getUrlContent(url))
     }
 
     fun getGankImageUrls(url: String): MutableList<String> {
         return parseGankImageUrls(jsonstr = getUrlContent(url))
     }
 
-    fun parseBaiduImageCategoryAndUrlList(jsonstr: String): MutableList<ImageCategoryAndUrl> {
+    fun parseSogouImageCategoryAndUrlList(jsonstr: String): MutableList<ImageCategoryAndUrl> {
         val imageResultList = mutableListOf<ImageCategoryAndUrl>()
         try {
             val obj = JSON.parse(jsonstr) as Map<*, *>
-            val dataArray = obj.get("data") as JSONArray
+            val dataArray = obj.get("items") as JSONArray
             dataArray.forEach {
-                val category = (it as Map<*, *>).get("fromPageTitleEnc") as String
-                val url = it.get("thumbURL") as String
+                val category = (it as Map<*, *>).get("title") as String
+                val url = it.get("ori_pic_url") as String
                 if (passFilter(url)) {
                     val imageResult = ImageCategoryAndUrl(category = category, url = url)
                     imageResultList.add(imageResult)

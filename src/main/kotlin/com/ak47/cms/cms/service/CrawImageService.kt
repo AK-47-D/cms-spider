@@ -32,7 +32,7 @@ class CrawImageService {
         for (i in 1..1000) {
             list.forEach {
                 launch(CommonPool) {
-                    saveBaiduImage(it.keyWord, i)
+                    saveSogouImage(it.keyWord, i)
                 }
             }
         }
@@ -117,9 +117,9 @@ class CrawImageService {
         }
     }
 
-    private fun saveBaiduImage(word: String, i: Int) {
+    private fun saveSogouImage(word: String, i: Int) {
         val api = ImageSearchApiBuilder.build(word, i)
-        JsonResultProcessor.getBaiduImageCategoryAndUrlList(api).forEach {
+        JsonResultProcessor.getSogouImageCategoryAndUrlList(api).forEach {
             val category = it.category
             val url = it.url
             if (imageRepository.countByUrl(url) == 0) {
