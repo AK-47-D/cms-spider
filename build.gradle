@@ -4,6 +4,7 @@ buildscript {
 		springBootVersion = '2.0.0.BUILD-SNAPSHOT'
 	}
 	repositories {
+		mavenLocal()
 		mavenCentral()
 		maven { url "https://repo.spring.io/snapshot" }
 		maven { url "https://repo.spring.io/milestone" }
@@ -32,6 +33,7 @@ compileTestKotlin {
 }
 
 repositories {
+	mavenLocal()
 	mavenCentral()
 	maven { url "https://repo.spring.io/snapshot" }
 	maven { url "https://repo.spring.io/milestone" }
@@ -39,28 +41,17 @@ repositories {
 
 
 dependencies {
-	compile('org.springframework.boot:spring-boot-starter-data-elasticsearch')
 	compile('org.springframework.boot:spring-boot-starter-data-jpa')
 	compile('org.springframework.boot:spring-boot-starter-freemarker')
-	compile('org.springframework.boot:spring-boot-starter-mail')
-	compile('org.springframework.boot:spring-boot-starter-quartz')
-//	compile('org.springframework.boot:spring-boot-starter-security')
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compile("org.jetbrains.kotlin:kotlin-stdlib-jre8")
 	compile("org.jetbrains.kotlin:kotlin-reflect")
 	runtime('mysql:mysql-connector-java')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
-//	testCompile('org.springframework.security:spring-security-test')
-
 	compile('com.alibaba:fastjson:1.1.64.android')
 	compile 'com.squareup.okhttp3:okhttp:3.8.1'
-	// https://mvnrepository.com/artifact/org.jetbrains.kotlinx/kotlinx-coroutines-core
 	compile group: 'org.jetbrains.kotlinx', name: 'kotlinx-coroutines-core', version: '0.19.2'
 	compile group: 'net.sourceforge.htmlunit', name: 'htmlunit', version: '2.27'
 	compile group: 'org.jsoup', name: 'jsoup', version: '1.10.3'
-	compile group: 'org.apache.shiro', name: 'shiro-spring', version: '1.4.0'
-	compile group: 'org.apache.shiro', name: 'shiro-ehcache', version: '1.4.0'
-
 	compile('org.springframework.boot:spring-boot-starter-actuator')
-
 }

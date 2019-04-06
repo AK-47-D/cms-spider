@@ -14,11 +14,11 @@ class Image {
     @Version
     var version: Int = 0
 
-    @Column(length = 255)
+    @Column(length = 100)
     var category: String = ""
     var isFavorite: Int = 0
 
-    @Column(length = 255, unique = true, nullable = false)
+    @Column(length = 100, unique = true, nullable = false)
     var url: String = ""
 
     var gmtCreated: Date = Date()

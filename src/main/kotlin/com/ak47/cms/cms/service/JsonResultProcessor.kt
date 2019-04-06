@@ -1,5 +1,6 @@
 package com.ak47.cms.cms.service
 
+import com.ak47.cms.cms.api.CrawlerWebClient
 import com.alibaba.fastjson.JSON
 import com.alibaba.fastjson.JSONArray
 import com.ak47.cms.cms.dto.ImageCategoryAndUrl
@@ -7,6 +8,9 @@ import java.net.URL
 import java.nio.charset.Charset
 
 object JsonResultProcessor {
+
+    val crawlerWebClient = CrawlerWebClient.instanceCrawlerClient()
+
 
     fun getBaiduImageCategoryAndUrlList(url: String): MutableList<ImageCategoryAndUrl> {
         return parseBaiduImageCategoryAndUrlList(jsonstr = getUrlContent(url))
@@ -37,7 +41,7 @@ object JsonResultProcessor {
     }
 
     fun getUrlContent(url: String): String {
-        return URL(url).readText(Charset.defaultCharset())
+        return crawlerWebClient.getJson(url)
     }
 
     fun passFilter(imgUrl: String): Boolean {
