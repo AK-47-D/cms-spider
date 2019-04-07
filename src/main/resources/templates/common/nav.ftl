@@ -1,29 +1,24 @@
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+<nav class="navbar navbar-inverse " role="navigation">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#">I9102</a>
+            <a class="navbar-brand" href="/sotu_favorite_view">I9102</a>
         </div>
         <div>
             <ul class="nav navbar-nav">
 
 
-                <li class="<#if requestURI?if_exists =="/sotu_gank_view">active</#if>">
-                    <a href="sotu_gank_view">干货福利</a>
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        干货福利 <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="sotu_favorite_view">精选收藏</a></li>
+                        <li><a href="sotu_gank_view">干货福利</a></li>
+                        <li><a href="sotu_huaban_view">花瓣美女</a></li>
+                        <li><a href="sotu_view">图集</a></li>
+                    </ul>
                 </li>
-
-                <li class="<#if requestURI?if_exists =="/sotu_favorite_view">active</#if>">
-                    <a href="sotu_favorite_view">精选收藏</a>
-                </li>
-
-                <li class="<#if requestURI?if_exists =="/sotu_view">active</#if>">
-                    <a href="sotu_view">图片列表</a>
-                </li>
-
-
-                <li class="<#if requestURI?if_exists =="/sotu_huaban_view">active</#if>">
-                    <a href="sotu_huaban_view">花瓣美女</a>
-                </li>
-
 
                 <li class="<#if requestURI?if_exists =="/focusNewsPage">active</#if>">
                     <a href="focusNewsPage">实时财经</a>
@@ -32,12 +27,6 @@
                 <li class="<#if requestURI?if_exists =="/tech_article_view">active</#if>">
                     <a href="tech_article_view">技术文章</a>
                 </li>
-
-                <li class=" <#if requestURI?if_exists =="/search_keyword_view">active</#if>"><a
-                        href="search_keyword_view">搜索关键字</a></li>
-
-
-
 
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -57,7 +46,7 @@
 
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        光剑文集 <b class="caret"></b>
+                        诗文集 <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
                         <li>
@@ -86,6 +75,8 @@
                         系统任务 <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
+
+                        <li><a href="search_keyword_view" target="_blank">搜索关键字</a></li>
                         <li><a href="doSogouImageCrawJob" target="_blank">抓取搜狗图片</a></li>
                         <li><a href="doGankImageCrawJob" target="_blank">抓取干货福利图</a></li>
                         <li><a href="doHuaBanImageCrawJob" target="_blank">抓取花瓣美女</a></li>
@@ -102,5 +93,3 @@
         </div>
     </div>
 </nav>
-
-

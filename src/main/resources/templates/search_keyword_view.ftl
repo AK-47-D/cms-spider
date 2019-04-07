@@ -10,7 +10,7 @@
                    placeholder="输入爬虫抓取关键字">
             <span class="input-group-btn">
 						<button id="add_key_word_form_save_button"
-                                class="btn btn-default"
+                                class="btn-sm btn-default"
                                 type="button">
 							 保存
 						</button>

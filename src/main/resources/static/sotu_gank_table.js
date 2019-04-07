@@ -4,17 +4,20 @@ $(function () {
     var searchText = $('.search').find('input').val()
 
     var columns = []
-    columns.push({
-        title: '分类',
-        field: 'category',
-        align: 'center',
-        valign: 'middle',
-        width: '5%',
-        formatter: function (value, row, index) {
-            return value
-        }
-    }, {
-        title: '图片',
+    columns.push(
+    //     {
+    //     title: '分类',
+    //     field: 'category',
+    //     align: 'center',
+    //     valign: 'middle',
+    //     width: '5%',
+    //     formatter: function (value, row, index) {
+    //         return value
+    //     }
+    // },
+
+        {
+        title: '干货福利',
         field: 'imageBlob',
         align: 'center',
         valign: 'middle',
@@ -30,9 +33,9 @@ $(function () {
         width: '5%',
         formatter: function (value, row, index) {
             var html = ""
-            html += "<div onclick=addFavorite(" + value + ") name='addFavorite' id='addFavorite" + value + "' class='btn btn-success'>收藏</div><p>"
-            html += "<div onclick=downBase64Image('data:image/jpg;base64," + row.imageBlob + "') class='btn btn-primary'>下载</div><p>"
-            html += "<div onclick=deleteById(" + value + ") name='delete' id='delete" + value + "' class='btn btn-warning'>删除</div><p>"
+            html += "<div onclick=addFavorite(" + value + ") name='addFavorite' id='addFavorite" + value + "' class='btn-sm btn-success'>收藏</div><p>"
+            html += "<div onclick=downBase64Image('data:image/jpg;base64," + row.imageBlob + "') class='btn-sm btn-primary'>下载</div><p>"
+            // html += "<div onclick=deleteById(" + value + ") name='delete' id='delete" + value + "' class='btn-sm btn-warning'>删除</div><p>"
 
             return html
         }
