@@ -1,11 +1,10 @@
 <nav class="navbar navbar-inverse " role="navigation">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="/sotu_favorite_view">I9102</a>
+            <a class="navbar-brand" href="/">I9102</a>
         </div>
         <div>
             <ul class="nav navbar-nav">
-
 
 
                 <li class="dropdown">
