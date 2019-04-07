@@ -16,6 +16,17 @@
 
     <script src="/bower_components/jquery/dist/jquery.js"></script>
     <script src="/app.js"></script>
+
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?865c05a59ea3663dff6be786917ba02b";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
 </head>
 <#include 'nav.ftl'>
 <body>
