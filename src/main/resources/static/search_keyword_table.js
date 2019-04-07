@@ -16,7 +16,7 @@ $(function () {
             }
         },
         {
-            title: '关键字',
+            title: 'keyWord',
             field: 'keyWord',
             align: 'center',
             valign: 'middle',
@@ -26,7 +26,7 @@ $(function () {
             }
         },
         {
-            title: '图片总数',
+            title: 'total',
             field: 'totalImage',
             align: 'center',
             valign: 'middle',
@@ -49,8 +49,8 @@ $(function () {
         paginationHAlign: 'right', //right, left
         paginationVAlign: 'bottom', //bottom, top, both
         paginationDetailHAlign: 'left', //right, left
-        paginationPreText: ' 上一页',
-        paginationNextText: '下一页',
+        paginationPreText: ' Pre',
+        paginationNextText: 'Next',
         search: true,
         searchText: searchText,
         searchTimeOut: 500,
@@ -83,11 +83,11 @@ $(function () {
         // 键盘翻页事件
         var e = event || window.event || arguments.callee.caller.arguments[0];
         if (e && e.keyCode == 38 || e && e.keyCode == 37) {//上,左
-            // 上一页
+            // Pre
             $('.page-pre').click()
         }
         if (e && e.keyCode == 40 || e && e.keyCode == 39) {//下,右
-            // 下一页
+            // Next
             $('.page-next').click()
         }
     })
@@ -100,10 +100,10 @@ $(function () {
             data: {keyWord: keyWord},
             success: function (response) {
                 if (response == "1") {
-                    alert("保存成功")
+                    alert("Saved")
                     $('#search_keyword_table').bootstrapTable('refresh')
                 } else {
-                    alert("数据不能为空")
+                    alert("Cannot empty")
                 }
 
             },

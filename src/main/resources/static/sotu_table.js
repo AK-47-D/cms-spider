@@ -19,11 +19,13 @@ $(function () {
 
         {
             title: 'Sets',
-            field: 'url',
+            field: 'imageBlob',
             align: 'center',
             valign: 'middle',
             formatter: function (value, row, index) {
-                return "<img data-original='" + value + "' onclick=slideShow(" + index + ") width='100%' src='" + value + "'>"
+                // return "<img data-original='" + value + "' onclick=slideShow(" + index + ") width='100%' src='" + value + "'>"
+                var html = '<img data-original="' + row.url + '" onclick=slideShow('+ index +') width="100%" src="data:image/jpg;base64,' + value + '"/>'
+                return html
             }
         }, {
             title: ' Ops',
@@ -32,9 +34,9 @@ $(function () {
             width: '5%',
             formatter: function (value, row, index) {
                 var html = ""
-                html += "<div onclick='addFavorite(" + value + ")' name='addFavorite' id='addFavorite" + value + "' class='btn-sm btn-success'>Love</div><p>"
-                html += "<div onclick='downloadImage(\"" + row.url + "\")' class='btn-sm btn-primary'>Download</div><p>"
-                // html += "<div onclick='deleteById(" + value + ")' name='delete' id='delete" + value + "' class='btn-sm btn-warning'>删除</div>"
+                html += "<div onclick=addFavorite(" + value + ") name='addFavorite' id='addFavorite" + value + "' class='btn-sm btn-success'>Love</div><p>"
+                html += "<div onclick=downBase64Image('data:image/jpg;base64," + row.imageBlob + "') class='btn-sm btn-primary'>Download</div><p>"
+                // html += "<div onclick=deleteById(" + value + ") name='delete' id='delete" + value + "' class='btn-sm btn-warning'>删除</div><p>"
 
                 return html
             }
@@ -55,8 +57,8 @@ $(function () {
         paginationHAlign: 'right', //right, left
         paginationVAlign: 'bottom', //bottom, top, both
         paginationDetailHAlign: 'left', //right, left
-        paginationPreText: ' 上一页',
-        paginationNextText: '下一页',
+        paginationPreText: ' Pre',
+        paginationNextText: 'Next',
         search: true,
         searchText: searchText,
         searchTimeOut: 500,

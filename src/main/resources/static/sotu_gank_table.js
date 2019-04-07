@@ -56,8 +56,8 @@ $(function () {
         paginationHAlign: 'right', //right, left
         paginationVAlign: 'bottom', //bottom, top, both
         paginationDetailHAlign: 'left', //right, left
-        paginationPreText: ' 上一页',
-        paginationNextText: '下一页',
+        paginationPreText: ' Pre',
+        paginationNextText: 'Next',
         search: true,
         searchText: searchText,
         searchTimeOut: 500,

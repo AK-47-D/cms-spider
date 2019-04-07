@@ -42,8 +42,8 @@ $(function () {
         paginationHAlign: 'right', //right, left
         paginationVAlign: 'bottom', //bottom, top, both
         paginationDetailHAlign: 'left', //right, left
-        paginationPreText: ' 上一页',
-        paginationNextText: '下一页',
+        paginationPreText: ' Pre',
+        paginationNextText: 'Next',
         search: false,
         sortable: true,    //是否启用排序
         sortOrder: "desc", //排序方式
@@ -105,8 +105,8 @@ $(function () {
         paginationHAlign: 'right', //right, left
         paginationVAlign: 'bottom', //bottom, top, both
         paginationDetailHAlign: 'left', //right, left
-        paginationPreText: ' 上一页',
-        paginationNextText: '下一页',
+        paginationPreText: ' Pre',
+        paginationNextText: 'Next',
         search: false,
         sortable: true,    //是否启用排序
         sortOrder: "desc", //排序方式
@@ -167,8 +167,8 @@ $(function () {
         paginationHAlign: 'right', //right, left
         paginationVAlign: 'bottom', //bottom, top, both
         paginationDetailHAlign: 'left', //right, left
-        paginationPreText: ' 上一页',
-        paginationNextText: '下一页',
+        paginationPreText: ' Pre',
+        paginationNextText: 'Next',
         search: false,
         sortable: true,    //是否启用排序
         sortOrder: "desc", //排序方式
@@ -229,8 +229,8 @@ $(function () {
         paginationHAlign: 'right', //right, left
         paginationVAlign: 'bottom', //bottom, top, both
         paginationDetailHAlign: 'left', //right, left
-        paginationPreText: ' 上一页',
-        paginationNextText: '下一页',
+        paginationPreText: ' Pre',
+        paginationNextText: 'Next',
         search: false,
         sortable: true,    //是否启用排序
         sortOrder: "desc", //排序方式
@@ -292,8 +292,8 @@ $(function () {
         paginationHAlign: 'right', //right, left
         paginationVAlign: 'bottom', //bottom, top, both
         paginationDetailHAlign: 'left', //right, left
-        paginationPreText: ' 上一页',
-        paginationNextText: '下一页',
+        paginationPreText: ' Pre',
+        paginationNextText: 'Next',
         search: false,
         sortable: true,    //是否启用排序
         sortOrder: "desc", //排序方式

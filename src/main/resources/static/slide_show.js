@@ -62,7 +62,7 @@ var fnSlideShow = function (urlArr, curId, nextLoop) {
         ID("appendBox").style.display = "block";
     }
     //图片预加载
-    ID("appendBox").innerHTML = '<div id="blank" style="width:100%; height:' + blankHeight + 'px; background:black; position:absolute; left:0; top:0; opacity:0.4; filter:alpha(opacity=40); z-index:799;"></div><div style="position:absolute; z-index:800; padding:18px; background:white; left:' + ((cWidth - 100) / 2 - 18) + 'px; top:' + (sTop + (cHeight - 100) / 2 - 18) + 'px;" id="appendPicBox"><div style="line-height:20px; padding:40px 0; text-align:center;">图片加载中……</div></div>';
+    ID("appendBox").innerHTML = '<div id="blank" style="width:100%; height:' + blankHeight + 'px; background:black; position:absolute; left:0; top:0; opacity:0.4; filter:alpha(opacity=40); z-index:799;"></div><div style="position:absolute; z-index:800; padding:18px; background:white; left:' + ((cWidth - 100) / 2 - 18) + 'px; top:' + (sTop + (cHeight - 100) / 2 - 18) + 'px;" id="appendPicBox"><div style="line-height:20px; padding:40px 0; text-align:center;">Loading...</div></div>';
 
     var preloader = new Image();
     preloader.src = urlArr[id];
@@ -90,12 +90,12 @@ var fnSlideShow = function (urlArr, curId, nextLoop) {
         ID("appendBox").innerHTML = '<div id="blank" style="width:100%; height:' + blankHeight + 'px; background:black; position:absolute; left:0; top:0; opacity:0.4; filter:alpha(opacity=40); z-index:799;"></div>' +
             '<div style="position:absolute; z-index:800; padding:0px; background:white;" id="appendPicBox">' +
             '<img id="theShowPic" src="' + urlArr[id] + '" />' +
-            '<span id="closePicBtn" style="position:absolute; right:-3px; top:-2px; z-index:800; cursor:pointer; font-size:12px; background:black; color:white; opacity:0.8; padding:1px 2px;-moz-border-radius:2px;-webkit-border-radius:2px;border-radius:2px;">关闭</span>' +
+            '<span id="closePicBtn" style="position:absolute; right:-3px; top:-2px; z-index:800; cursor:pointer; font-size:12px; background:black; color:white; opacity:0.8; padding:1px 2px;-moz-border-radius:2px;-webkit-border-radius:2px;border-radius:2px;">Close</span>' +
             '<div id="picPrevRemind" style="position:absolute; width:56px; left:18px; top:-8000px;">' +
-            '    <div style="opacity:0.4; padding-left:5px; text-align:left;line-height:24px; font-size:16px; color: #ffffff;">上一张</div>' +
+            '    <div style="opacity:0.4; padding-left:5px; text-align:left;line-height:24px; font-size:16px; color: #ffffff;">Pre</div>' +
             '</div>' +
             '<div id="picNextRemind" style="position:absolute; width:56px; right:18px; top:-8000px;">' +
-            '    <div style="opacity:0.4; padding-right:5px; text-align:right; line-height:24px; font-size:16px; color:#ffffff;">下一张</div>' +
+            '    <div style="opacity:0.4; padding-right:5px; text-align:right; line-height:24px; font-size:16px; color:#ffffff;">Next</div>' +
             '</div>' +
             '<a title="Pre" id="picPrev" hidefocus="true" href="javascript:void(0);" rel="' + prev + '" style="width:50%; height:100%; left:0; top:0; position:absolute; outline:0;"></a>' +
             '<a title="Next" id="picNext" href="javascript:void(0);" rel="' + next + '" hidefocus="true" style="width:50%; height:100%; right:0; top:0; position:absolute; outline:0;"></a>' +
@@ -148,7 +148,7 @@ var fnSlideShow = function (urlArr, curId, nextLoop) {
             return false;
         };
 
-        //关闭事件
+        //Close事件
         ID("blank").onclick = function () {
             ID("appendBox").style.display = "none";
             window.clearInterval(nextLoop)

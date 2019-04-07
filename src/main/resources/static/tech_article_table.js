@@ -16,7 +16,7 @@ $(function () {
             }
         },
         {
-            title: '标题',
+            title: 'Title',
             field: 'title',
             align: 'left',
             valign: 'middle',
@@ -26,7 +26,7 @@ $(function () {
                 return html
             }
         }, {
-            title: '摘要',
+            title: 'Abstract',
             field: 'simpleContent',
             align: 'left',
             valign: 'middle',
@@ -50,8 +50,8 @@ $(function () {
         paginationHAlign: 'right', //right, left
         paginationVAlign: 'bottom', //bottom, top, both
         paginationDetailHAlign: 'left', //right, left
-        paginationPreText: ' 上一页',
-        paginationNextText: '下一页',
+        paginationPreText: ' Pre',
+        paginationNextText: 'Next',
         search: true,
         searchText: searchText,
         searchTimeOut: 500,

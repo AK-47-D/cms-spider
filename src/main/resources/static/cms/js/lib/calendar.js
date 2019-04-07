@@ -132,7 +132,7 @@ var calender = new function (){
 		setCalendar();//变更日历
 	}
 	/*
-	 * 设置下一页月份，点一下翻半年
+	 * 设置Next月份，点一下翻半年
 	 */
 	function setNextMonth(){
 		for(var i=0;i<7;i++){
@@ -160,7 +160,7 @@ var calender = new function (){
 		setDisDate();//改变显示日期
 	}
 	/*
-	 * 设置上一页月份,点一下翻半年
+	 * 设置Pre月份,点一下翻半年
 	 */
 	function setLastMonth(){
 		for(var i=0;i<7;i++){

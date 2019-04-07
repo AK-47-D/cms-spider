@@ -7,7 +7,7 @@ function addFavorite(id) {
         success: function (resp) {
             // alert(JSON.stringify(resp))
             new PNotify({
-                title: '收藏操作',
+                title: 'Collect',
                 styling: 'bootstrap3',
                 text: JSON.stringify(resp),
                 type: 'success',
@@ -17,7 +17,7 @@ function addFavorite(id) {
         error: function (msg) {
             // alert(JSON.stringify(msg))
             new PNotify({
-                title: '收藏操作',
+                title: 'Collect',
                 styling: 'bootstrap3',
                 text: JSON.stringify(msg),
                 type: 'error',
@@ -38,7 +38,7 @@ function deleteById(id) {
             $('#sotu_favorite_table').bootstrapTable('refresh')
             $('#sotu_table').bootstrapTable('refresh')
             new PNotify({
-                title: '删除操作',
+                title: 'Delete',
                 styling: 'bootstrap3',
                 text: JSON.stringify(resp),
                 type: 'info',
@@ -49,7 +49,7 @@ function deleteById(id) {
         error: function (msg) {
             // alert(JSON.stringify(msg))
             new PNotify({
-                title: '删除操作',
+                title: 'Delete',
                 styling: 'bootstrap3',
                 text: JSON.stringify(msg),
                 type: 'error',
@@ -69,7 +69,8 @@ function downloadImage(src) {
 function downBase64Image(url) {
     var blob = base64Img2Blob(url);
     url = window.URL.createObjectURL(blob);
-    var $a = $("<a></a>").attr("href", url).attr("download", "sotu.png");
+    var timestamp = (new Date()).getTime();
+    var $a = $("<a></a>").attr("href", url).attr("download", `I9102_${timestamp}.png`);
     $a[0].click();
 }
 
@@ -127,12 +128,12 @@ $(function () {
         }
 
         if (e && e.keyCode == 37) {//左
-            // 上一页
+            // Pre
             $('.page-pre').click()
         }
 
         if (e && e.keyCode == 39) {//右
-            // 下一页
+            // Next
             $('.page-next').click()
 
         }
@@ -300,7 +301,7 @@ var calender = new function (){
         setCalendar();//变更日历
     }
     /*
-     * 设置下一页月份，点一下翻半年
+     * 设置Next月份，点一下翻半年
      */
     function setNextMonth(){
         for(var i=0;i<7;i++){
@@ -328,7 +329,7 @@ var calender = new function (){
         setDisDate();//改变显示日期
     }
     /*
-     * 设置上一页月份,点一下翻半年
+     * 设置Pre月份,点一下翻半年
      */
     function setLastMonth(){
         for(var i=0;i<7;i++){
