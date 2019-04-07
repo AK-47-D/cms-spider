@@ -6,39 +6,39 @@ $(function () {
     var columns = []
     columns.push(
 
-    //     {
-    //     title: '分类',
-    //     field: 'category',
-    //     align: 'center',
-    //     valign: 'middle',
-    //     width: '5%',
-    //     formatter: function (value, row, index) {
-    //         return value
-    //     }
-    // },
+        //     {
+        //     title: '分类',
+        //     field: 'category',
+        //     align: 'center',
+        //     valign: 'middle',
+        //     width: '5%',
+        //     formatter: function (value, row, index) {
+        //         return value
+        //     }
+        // },
 
         {
-        title: '图集',
-        field: 'url',
-        align: 'center',
-        valign: 'middle',
-        formatter: function (value, row, index) {
-            return "<img data-original='" + value + "' onclick=slideShow(" + index + ") width='100%' src='" + value + "'>"
-        }
-    }, {
-        title: ' 操作',
-        field: 'id',
-        align: 'center',
-        width: '5%',
-        formatter: function (value, row, index) {
-            var html = ""
-            html += "<div onclick='addFavorite(" + value + ")' name='addFavorite' id='addFavorite" + value + "' class='btn-sm btn-success'>收藏</div><p>"
-            html += "<div onclick='downloadImage(\"" + row.url + "\")' class='btn-sm btn-primary'>下载</div><p>"
-            // html += "<div onclick='deleteById(" + value + ")' name='delete' id='delete" + value + "' class='btn-sm btn-warning'>删除</div>"
+            title: 'Sets',
+            field: 'url',
+            align: 'center',
+            valign: 'middle',
+            formatter: function (value, row, index) {
+                return "<img data-original='" + value + "' onclick=slideShow(" + index + ") width='100%' src='" + value + "'>"
+            }
+        }, {
+            title: ' Ops',
+            field: 'id',
+            align: 'center',
+            width: '5%',
+            formatter: function (value, row, index) {
+                var html = ""
+                html += "<div onclick='addFavorite(" + value + ")' name='addFavorite' id='addFavorite" + value + "' class='btn-sm btn-success'>Love</div><p>"
+                html += "<div onclick='downloadImage(\"" + row.url + "\")' class='btn-sm btn-primary'>Download</div><p>"
+                // html += "<div onclick='deleteById(" + value + ")' name='delete' id='delete" + value + "' class='btn-sm btn-warning'>删除</div>"
 
-            return html
-        }
-    })
+                return html
+            }
+        })
 
     $('#sotu_table').bootstrapTable({
         url: 'sotuSearchJson',

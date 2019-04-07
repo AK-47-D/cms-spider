@@ -6,41 +6,41 @@ $(function () {
     var columns = []
     columns.push(
 
-    //     {
-    //     title: '分类',
-    //     field: 'category',
-    //     align: 'center',
-    //     valign: 'middle',
-    //     width: '5%',
-    //     formatter: function (value, row, index) {
-    //         return value
-    //     }
-    // },
+        //     {
+        //     title: '分类',
+        //     field: 'category',
+        //     align: 'center',
+        //     valign: 'middle',
+        //     width: '5%',
+        //     formatter: function (value, row, index) {
+        //         return value
+        //     }
+        // },
 
         {
-        title: '花瓣美女',
-        field: 'imageBlob',
-        align: 'center',
-        valign: 'middle',
-        formatter: function (value, row, index) {
-            // var html = "<img onclick=downloadImage('" + value + "') width='100%' src='" + value + "'>"
-            var html = '<img data-original="' + row.url + '" onclick=slideShow('+ index +') width="100%" src="data:image/jpg;base64,' + value + '"/>'
-            return html
-        }
-    }, {
-        title: ' 操作',
-        field: 'id',
-        align: 'center',
-        width: '5%',
-        formatter: function (value, row, index) {
-            var html = ""
-            html += "<div onclick=addFavorite(" + value + ") name='addFavorite' id='addFavorite" + value + "' class='btn-sm btn-success'>收藏</div><p>"
-            html += "<div onclick=downBase64Image('data:image/jpg;base64," + row.imageBlob + "') class='btn-sm btn-primary'>下载</div><p>"
-            // html += "<div onclick=deleteById(" + value + ") name='delete' id='delete" + value + "' class='btn-sm btn-warning'>删除</div><p>"
+            title: 'HuaBan Beauty',
+            field: 'imageBlob',
+            align: 'center',
+            valign: 'middle',
+            formatter: function (value, row, index) {
+                // var html = "<img onclick=downloadImage('" + value + "') width='100%' src='" + value + "'>"
+                var html = '<img data-original="' + row.url + '" onclick=slideShow('+ index +') width="100%" src="data:image/jpg;base64,' + value + '"/>'
+                return html
+            }
+        }, {
+            title: ' Ops',
+            field: 'id',
+            align: 'center',
+            width: '5%',
+            formatter: function (value, row, index) {
+                var html = ""
+                html += "<div onclick=addFavorite(" + value + ") name='addFavorite' id='addFavorite" + value + "' class='btn-sm btn-success'>Love</div><p>"
+                html += "<div onclick=downBase64Image('data:image/jpg;base64," + row.imageBlob + "') class='btn-sm btn-primary'>Download</div><p>"
+                // html += "<div onclick=deleteById(" + value + ") name='delete' id='delete" + value + "' class='btn-sm btn-warning'>删除</div><p>"
 
-            return html
-        }
-    })
+                return html
+            }
+        })
 
     $('#sotu_huaban_view_table').bootstrapTable({
         url: 'sotuSearchByTypeJson',

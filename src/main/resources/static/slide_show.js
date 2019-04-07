@@ -97,8 +97,8 @@ var fnSlideShow = function (urlArr, curId, nextLoop) {
             '<div id="picNextRemind" style="position:absolute; width:56px; right:18px; top:-8000px;">' +
             '    <div style="opacity:0.4; padding-right:5px; text-align:right; line-height:24px; font-size:16px; color:#ffffff;">下一张</div>' +
             '</div>' +
-            '<a title="查看上一张图片" id="picPrev" hidefocus="true" href="javascript:void(0);" rel="' + prev + '" style="width:50%; height:100%; left:0; top:0; position:absolute; outline:0;"></a>' +
-            '<a title="查看下一张图片" id="picNext" href="javascript:void(0);" rel="' + next + '" hidefocus="true" style="width:50%; height:100%; right:0; top:0; position:absolute; outline:0;"></a>' +
+            '<a title="Pre" id="picPrev" hidefocus="true" href="javascript:void(0);" rel="' + prev + '" style="width:50%; height:100%; left:0; top:0; position:absolute; outline:0;"></a>' +
+            '<a title="Next" id="picNext" href="javascript:void(0);" rel="' + next + '" hidefocus="true" style="width:50%; height:100%; right:0; top:0; position:absolute; outline:0;"></a>' +
             '</div>';
 
         //给左右切换区域定宽
@@ -113,17 +113,17 @@ var fnSlideShow = function (urlArr, curId, nextLoop) {
         ID("picPrev").onmouseover = function () {
             if (this.rel) {
                 ID(this.id + "Remind").style.top = h / 3 + "px";
-                this.title = "查看上一张图片";
+                this.title = "Pre";
             } else {
-                this.title = "这是第一张图片";
+                this.title = "First";
             }
         };
         ID("picNext").onmouseover = function () {
             if (this.rel) {
                 ID(this.id + "Remind").style.top = h / 3 + "px";
-                this.title = "查看下一张图片";
+                this.title = "Next";
             } else {
-                this.title = "这是最后一张图片";
+                this.title = "Last";
             }
         };
         ID("picPrev").onmouseout = function () {
