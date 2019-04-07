@@ -6,9 +6,6 @@ import com.ak47.cms.cms.api.ImageSearchApiBuilder
 import com.ak47.cms.cms.dao.ImageRepository
 import com.ak47.cms.cms.dao.SearchKeyWordRepository
 import com.ak47.cms.cms.entity.Image
-import kotlinx.coroutines.experimental.CommonPool
-import kotlinx.coroutines.experimental.launch
-import kotlinx.coroutines.experimental.runBlocking
 import org.jsoup.Jsoup
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
@@ -23,42 +20,38 @@ class CrawImageService {
 
     val crawlerWebClient = CrawlerWebClient.instanceCrawlerClient()
 
-    @Autowired lateinit var imageRepository: ImageRepository
-    @Autowired lateinit var searchKeyWordRepository: SearchKeyWordRepository
+    @Autowired
+    lateinit var imageRepository: ImageRepository
+    @Autowired
+    lateinit var searchKeyWordRepository: SearchKeyWordRepository
 
-    fun doBaiduImageCrawJob() = runBlocking {
+    fun doSogouImageCrawJob() {
         val list = searchKeyWordRepository.findAll()
 
-        for (i in 1..1000) {
+        for (i in 1..10) {
             list.forEach {
-                launch(CommonPool) {
-                    saveSogouImage(it.keyWord, i)
-                }
+                saveSogouImage(it.keyWord, i)
             }
         }
     }
 
-    fun doGankImageCrawJob() = runBlocking {
-        for (page in 1..6) {
-            launch(CommonPool) {
-                saveGankImage(page)
-            }
+    fun doGankImageCrawJob() {
+        for (page in 1..10) {
+            saveGankImage(page)
         }
     }
 
 
     fun doCrawHuaBanImages() {
         val boardsUrls = getBoards()
-        launch(CommonPool) {
-            boardsUrls.forEach {
-                saveHuaBanImages(it)
-            }
+        boardsUrls.forEach {
+            saveHuaBanImages(it)
         }
     }
 
     private fun getBoards(): MutableSet<String> {
         val boardsUrl = "https://huaban.com/boards/favorite/beauty/"
-        val boardsUrls = mutableSetOf("http://huaban.com/favorite/beauty/", "http://huaban.com/boards/17375733/")
+        val boardsUrls = mutableSetOf<String>()
 
         crawlerWebClient.getPage(boardsUrl).asText()
         val boardsPageHtml = crawlerWebClient.getPage(boardsUrl).asXml()
@@ -82,11 +75,11 @@ class CrawImageService {
 
         val beautyPageHtml = crawlerWebClient.getPage(beautyUrl).asXml()
         val document = Jsoup.parse(beautyPageHtml)
-//        println(document)
-//        document.getElementsByClassName('img x layer-view loaded')[1].children[1].src
-        document.getElementsByClass("img x layer-view loaded").forEach {
-            var url = "http:" + it.child(1).attr("src")
-            url = url.replace("/fw/480", "/fw/1080")
+
+        // document.getElementById("waterfall").children[0].children[2].children[1].src
+        document.getElementById("waterfall").children().forEach {
+            var url = "http:" + it.child(2).child(1).attr("src")
+            url = url.replace("_fw236", "_fw1000")
             println("花瓣 url = ${url}")
             if (imageRepository.countByUrl(url) == 0) {
                 val image = Image()
@@ -94,7 +87,6 @@ class CrawImageService {
                 image.url = url
                 image.sourceType = 2
                 image.imageBlob = getByteArray(url)
-                logger.info("image = ${image}")
                 imageRepository.save(image)
             }
         }
@@ -111,7 +103,6 @@ class CrawImageService {
                 image.url = url
                 image.sourceType = 1
                 image.imageBlob = getByteArray(url)
-                logger.info("image = ${image}")
                 imageRepository.save(image)
             }
         }
@@ -127,8 +118,7 @@ class CrawImageService {
                 image.category = category
                 image.url = url
                 image.sourceType = 0
-                //image.imageBlob = getByteArray(url)
-                logger.info("image = ${image}")
+                image.imageBlob = getByteArray(url)
                 imageRepository.save(image)
             }
         }

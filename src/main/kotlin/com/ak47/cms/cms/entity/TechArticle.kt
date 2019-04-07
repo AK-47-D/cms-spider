@@ -16,12 +16,8 @@ open class TechArticle {
 
     @Lob
     var simpleContent = "文章摘要"
+    var category = "分类"
 
-    @Lob
-    var showContent = "文章内容"
-    // TechArticleTag 表中的 tagId
-    var tagId = -1
-    var category = "编程语言"
     var gmtCreate = Date()
     var gmtModified = Date()
 

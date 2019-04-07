@@ -1,7 +1,7 @@
 package com.ak47.cms.cms.controller
 
 import com.ak47.cms.cms.dao.TechArticleRepository
-import com.ak47.cms.cms.dto.TechArticleDto
+import com.ak47.cms.cms.entity.TechArticle
 import com.ak47.cms.cms.service.CrawTechArticleService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.data.domain.Page
@@ -21,7 +21,7 @@ class TechArticleController {
             @RequestParam(value = "page", defaultValue = "0") page: Int,
             @RequestParam(value = "size", defaultValue = "10") size: Int,
             @RequestParam(value = "searchText", defaultValue = "") searchText: String
-    ): Page<TechArticleDto> {
+    ): Page<TechArticle> {
         val pageRequest = PageRequest.of(page, size)
 
         return when (searchText) {

@@ -1,5 +1,5 @@
-<#include '../cms_common/header.ftl'>
-<#include 'bankRate.ftl'>
+<#include '../common/head.ftl'>
+<#include './bankRate.ftl'>
 
 <link href="/cms/css/calendar_page.css" rel="stylesheet"/>
 <link href="/cms/css/common.css" rel="stylesheet"/>

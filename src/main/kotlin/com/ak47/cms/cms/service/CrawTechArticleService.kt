@@ -14,7 +14,8 @@ import org.springframework.stereotype.Service
 class CrawTechArticleService {
     val logger = LoggerFactory.getLogger(CrawTechArticleService::class.java)
     val crawlerWebClient = CrawlerWebClient.instanceCrawlerClient()
-    @Autowired lateinit var TechArticleRepository: TechArticleRepository
+    @Autowired
+    lateinit var TechArticleRepository: TechArticleRepository
 
     fun doCrawITEyeTechArticle() {
         launch(CommonPool) {
@@ -53,10 +54,10 @@ class CrawTechArticleService {
         val pageHtml = crawlerWebClient.getPage(articleSearchUrl).asXml()
         println("pageHtml = ${pageHtml}")
         val document = Jsoup.parse(pageHtml)
-        document.getElementsByClass("blog clearfix").forEach {
-            var url = it.child(0).child(0).child(0).attr("href")
-            var title = it.child(0).child(0).child(0).attr("title")
-            var simpleContent = it.child(0).child(1).html()
+        document.getElementsByClass("content").forEach {
+            var url = it.child(0).child(0).attr("href")
+            var title = it.child(0).child(0).attr("title")
+            var simpleContent = it.child(1).child(1).html()
             var showContent = getITEyeBlogMainShowContent(url)
 
             if (TechArticleRepository.countByUrl(url) == 0) {
@@ -64,20 +65,17 @@ class CrawTechArticleService {
                         url = url,
                         title = title,
                         simpleContent = simpleContent,
-                        showContent = showContent,
                         category = "IT Eye"
                 )
             }
         }
     }
 
-    private fun doSaveTechArticle(url: String, title: String, simpleContent: String, showContent: String, category: String) {
+    private fun doSaveTechArticle(url: String, title: String, simpleContent: String, category: String) {
         val TechArticle = TechArticle()
         TechArticle.url = url
         TechArticle.title = title
         TechArticle.simpleContent = simpleContent
-        TechArticle.showContent = showContent
-        TechArticle.tagId = 1
         TechArticle.category = category
 
         try {
@@ -100,45 +98,18 @@ class CrawTechArticleService {
         println("简书专题 HTML = ${html}")
         val document = Jsoup.parse(html)
 
-
-
-//        document.getElementById("list-container").child(0).children().forEach {
-//
-//            // document.getElementById("list-container").children[0].children[1].children[1].children[1].href
-////  "http://www.jianshu.com/p/0088df5fd644"
-////   document.getElementById("list-container").children[0].children[1].children[1].children[1].innerHTML
-////   "Kotlin入门指南"
-//            val url = "http://www.jianshu.com" + it.child(1).child(1).attr("href")
-//            val title = it.child(1).child(1).html()
-//            val simpleContent = it.child(1).child(2).html()
-//            val showContent = getJianShuShowContent(url)
-//
-//
-//            if (TechArticleRepository.countByUrl(url) == 0) {
-//                doSaveTechArticle(
-//                        url = url,
-//                        title = title,
-//                        simpleContent = simpleContent,
-//                        showContent = showContent,
-//                        category = "简书文章"
-//                )
-//            }
-//
-//        }
-
         document.getElementsByClass("content").forEach {
 
-            val url = "http://www.jianshu.com" + it.child(1).attr("href")
-            val title = it.child(1).html()
-            val simpleContent = it.child(2).html()
+            val url = "http://www.jianshu.com" + it.child(0).attr("href")
+            val title = it.child(0).html()
+            val simpleContent = it.child(1).html()
             val showContent = getJianShuShowContent(url)
             if (TechArticleRepository.countByUrl(url) == 0) {
                 doSaveTechArticle(
                         url = url,
                         title = title,
                         simpleContent = simpleContent,
-                        showContent = showContent,
-                        category = "简书文章"
+                        category = "简书"
                 )
             }
         }

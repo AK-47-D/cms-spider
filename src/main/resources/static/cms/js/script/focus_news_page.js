@@ -6,19 +6,12 @@ $(function () {
     var global_columns = []
     global_columns.push({
         title: '',
-        field: 'display_time',
+        field: 'gmtCreated',
         align: 'center',
         valign: 'middle',
         width: '5%',
         formatter: function (value, row, index) {
-            var date = new Date(value * 1000);
-            Y = date.getFullYear()
-            M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1)
-            D = date.getDate()
-            h = date.getHours()
-            m = date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()
-            s = date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds()
-            return Y + '-' + M + '-' + D + ' ' + h + ':' + m + ':' + s
+            return value;
         }
     }, {
         title: ' ',
@@ -76,19 +69,12 @@ $(function () {
     var a_stock_columns = []
     a_stock_columns.push({
         title: '',
-        field: 'display_time',
+        field: 'gmtCreated',
         align: 'center',
         valign: 'middle',
         width: '5%',
         formatter: function (value, row, index) {
-            var date = new Date(value * 1000);
-            Y = date.getFullYear()
-            M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1)
-            D = date.getDate()
-            h = date.getHours()
-            m = date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()
-            s = date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds()
-            return Y + '-' + M + '-' + D + ' ' + h + ':' + m + ':' + s
+            return value;
         }
     }, {
         title: ' ',
@@ -145,19 +131,12 @@ $(function () {
     var us_stock_columns = []
     us_stock_columns.push({
         title: '',
-        field: 'display_time',
+        field: 'gmtCreated',
         align: 'center',
         valign: 'middle',
         width: '5%',
         formatter: function (value, row, index) {
-            var date = new Date(value * 1000);
-            Y = date.getFullYear()
-            M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1)
-            D = date.getDate()
-            h = date.getHours()
-            m = date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()
-            s = date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds()
-            return Y + '-' + M + '-' + D + ' ' + h + ':' + m + ':' + s
+            return value;
         }
     }, {
         title: ' ',
@@ -214,19 +193,12 @@ $(function () {
     var forex_columns = []
     forex_columns.push({
         title: '',
-        field: 'display_time',
+        field: 'gmtCreated',
         align: 'center',
         valign: 'middle',
         width: '5%',
         formatter: function (value, row, index) {
-            var date = new Date(value * 1000);
-            Y = date.getFullYear()
-            M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1)
-            D = date.getDate()
-            h = date.getHours()
-            m = date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()
-            s = date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds()
-            return Y + '-' + M + '-' + D + ' ' + h + ':' + m + ':' + s
+            return value;
         }
     }, {
         title: ' ',
@@ -284,19 +256,12 @@ $(function () {
     var commodity_columns = []
     commodity_columns.push({
         title: '',
-        field: 'display_time',
+        field: 'gmtCreated',
         align: 'center',
         valign: 'middle',
         width: '5%',
         formatter: function (value, row, index) {
-            var date = new Date(value * 1000);
-            Y = date.getFullYear()
-            M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1)
-            D = date.getDate()
-            h = date.getHours()
-            m = date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()
-            s = date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds()
-            return Y + '-' + M + '-' + D + ' ' + h + ':' + m + ':' + s
+            return value;
         }
     }, {
         title: ' ',

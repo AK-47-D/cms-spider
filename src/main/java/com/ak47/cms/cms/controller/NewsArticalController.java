@@ -45,7 +45,7 @@ public class NewsArticalController {
     @GetMapping("/news/{newsId}")
     public String findNewsPage(Long newsId, ModelMap modelMap){
         modelMap.addAttribute("news",newsArticalService.findOne(newsId));
-        return "cms_layout/news/news_detail";
+        return "fin_news/news/news_detail";
     }
 
     @PostMapping("manage/news/saveNews")

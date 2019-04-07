@@ -15,34 +15,50 @@ import org.springframework.web.bind.annotation.ResponseBody
 @Controller
 class CrawController {
 
-    @Autowired lateinit var crawImageService: CrawImageService
-    @Autowired lateinit var batchUpdateJob: BatchUpdateJob
+    @Autowired
+    lateinit var crawImageService: CrawImageService
+    @Autowired
+    lateinit var batchUpdateJob: BatchUpdateJob
 
-    @RequestMapping(value = "doBaiduImageCrawJob", method = arrayOf(RequestMethod.GET))
+    @RequestMapping(value = "doSogouImageCrawJob", method = arrayOf(RequestMethod.GET))
     @ResponseBody
-    fun doBaiduImageCrawJob(): String {
-        crawImageService.doBaiduImageCrawJob()
-        return "doBaiduImageCrawJob JOB Started"
+    fun doSogouImageCrawJob(): String {
+        Thread {
+            crawImageService.doSogouImageCrawJob()
+
+        }.start()
+
+        return "doSogouImageCrawJob JOB Started"
     }
 
     @RequestMapping(value = "doGankImageCrawJob", method = arrayOf(RequestMethod.GET))
     @ResponseBody
     fun doGankImageCrawJob(): String {
-        crawImageService.doGankImageCrawJob()
-        return "doBaiduImageCrawJob JOB Started"
+        Thread {
+            crawImageService.doGankImageCrawJob()
+
+        }.start()
+
+        return "doSogouImageCrawJob JOB Started"
     }
 
     @RequestMapping(value = "doHuaBanImageCrawJob", method = arrayOf(RequestMethod.GET))
     @ResponseBody
     fun doHuaBanImageCrawJob(): String {
-        crawImageService.doCrawHuaBanImages()
+        Thread {
+            crawImageService.doCrawHuaBanImages()
+
+        }.start()
+
         return "doCrawHuaBanImages JOB Started"
     }
 
     @RequestMapping(value = "doBatchUpdateJob", method = arrayOf(RequestMethod.GET))
     @ResponseBody
     fun BatchUpdateJob(): String {
+
         batchUpdateJob.job()
+
         return "BatchUpdateJob Started"
     }
 

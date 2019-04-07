@@ -1,5 +1,4 @@
 <#include 'common/head.ftl'>
-<#include 'common/nav.ftl'>
 
 <form id="add_key_word_form">
     <div class="col-lg-3">

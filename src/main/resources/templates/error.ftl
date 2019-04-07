@@ -1,5 +1,4 @@
 <#include 'common/head.ftl'>
-<#include 'common/nav.ftl'>
 
 <h1>系统异常统一处理页面</h1>
 

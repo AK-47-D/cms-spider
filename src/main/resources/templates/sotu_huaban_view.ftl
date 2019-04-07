@@ -1,6 +1,4 @@
 <#include 'common/head.ftl'>
-<#include 'common/nav.ftl'>
-
 
 <table id="sotu_huaban_view_table"></table>
 

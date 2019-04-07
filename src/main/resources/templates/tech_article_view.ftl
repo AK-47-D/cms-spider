@@ -1,6 +1,4 @@
 <#include 'common/head.ftl'>
-<#include 'common/nav.ftl'>
-
 
 <table id="tech_article_view_table"></table>
 

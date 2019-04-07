@@ -13,9 +13,9 @@ class ImageCrawlerJob {
     @Autowired lateinit var crawImagesService: CrawImageService
 
     @Scheduled(cron = "0 0 10 */1 * ?")
-    fun doBaiduImageCrawJob() {
-        println("开始执行定时任务 doBaiduImageCrawJob： ${Date()}")
-        crawImagesService.doBaiduImageCrawJob()
+    fun doSogouImageCrawJob() {
+        println("开始执行定时任务 doSogouImageCrawJob： ${Date()}")
+        crawImagesService.doSogouImageCrawJob()
     }
 
     @Scheduled(cron = "0 0 10 */1 * ?")

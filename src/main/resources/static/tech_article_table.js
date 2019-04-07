@@ -33,22 +33,6 @@ $(function () {
             formatter: function (value, row, index) {
                 return value
             }
-        }, {
-            title: '标签',
-            field: 'tagDetail',
-            align: 'center',
-            width: '10%',
-            formatter: function (value, row, index) {
-                return value
-            }
-        }, {
-            title: '分类',
-            field: 'category',
-            align: 'center',
-            width: '10%',
-            formatter: function (value, row, index) {
-                return value
-            }
         })
 
     $('#tech_article_view_table').bootstrapTable({

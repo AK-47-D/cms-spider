@@ -26,7 +26,7 @@ public class ManageController {
     @Autowired
     private FocusEventsService focusEventsService;
 
-    @GetMapping("main")
+    @GetMapping("content")
     public String manageMain(){
         return "cms_manage/content";
     }

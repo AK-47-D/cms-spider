@@ -1,9 +1,9 @@
-<#include '../cms_common/header.ftl'>
+<#include '../common/head.ftl'>
 
 <link href="/cms/css/calendar_page.css" rel="stylesheet"/>
 <link href="/cms/css/common.css" rel="stylesheet"/>
 
-<#include 'stockRate.ftl'>
+<#include './stockRate.ftl'>
 
 
 <div class="" style="margin-top:40px; margin-left: 50px;margin-right: 450px;">
@@ -78,7 +78,7 @@
 
 
         })
-        ;
+
 
 
     </script>
@@ -129,4 +129,4 @@
 
 <script type="text/javascript" src="/cms/js/script/focus_news_page.js"></script>
 
-<#include '../cms_common/footer.ftl'>
+<#include '../common/foot.ftl'>

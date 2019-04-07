@@ -23,7 +23,7 @@ class FocusLiveNews {
     var content = ""
 
     @Column(name = "display_time")
-//    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     var display_time = Date()
 
     @Column(name = "score")
@@ -39,9 +39,9 @@ class FocusLiveNews {
     @Column(name = "type")
     var type = "a_stock"
 
-
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     var gmtCreated: Date = Date()
-
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     var gmtModified: Date = Date()
 
 }
