@@ -6,6 +6,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>I9102</title>
+
+    <link rel="icon" href="/logo.jpg" type="image/x-icon" />
+
     <link href="/bower_components/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet">
     <link href="/bower_components/bootstrap-table/src/bootstrap-table.css" rel="stylesheet">
     <link href="/bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
