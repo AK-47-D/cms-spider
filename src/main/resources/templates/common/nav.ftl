@@ -23,6 +23,10 @@
                     <a href="focusNewsPage">实时财经</a>
                 </li>
 
+                <li>
+                    <a href="https://universsky.github.io/" target="_blank">免费电子书</a>
+                </li>
+
                 <li class="<#if requestURI?if_exists =="/tech_article_view">active</#if>">
                     <a href="tech_article_view">技术文章</a>
                 </li>
