@@ -24,22 +24,26 @@ $(function () {
             formatter: function (value, row, index) {
                 // var html = "<img onclick=downloadImage('" + value + "') width='100%' src='" + value + "'>"
                 var html = '<img data-original="' + row.url + '" onclick=slideShow('+ index +') width="100%" src="data:image/jpg;base64,' + value + '"/>'
+                html += "<span onclick=addFavorite(" + row.id + ") name='addFavorite' id='addFavorite" + row.id + "' class='btn-sm btn-danger'>Love</span>"
+                html += "&nbsp;&nbsp;<span onclick=downBase64Image('data:image/jpg;base64," + row.imageBlob + "') class='btn-sm btn-success'>Download</span>"
                 return html
             }
-        }, {
-            title: ' Ops',
-            field: 'id',
-            align: 'center',
-            width: '5%',
-            formatter: function (value, row, index) {
-                var html = ""
-                html += "<div onclick=addFavorite(" + value + ") name='addFavorite' id='addFavorite" + value + "' class='btn-sm btn-success'>Love</div><p>"
-                html += "<div onclick=downBase64Image('data:image/jpg;base64," + row.imageBlob + "') class='btn-sm btn-primary'>Download</div><p>"
-                // html += "<div onclick=deleteById(" + value + ") name='delete' id='delete" + value + "' class='btn-sm btn-warning'>删除</div><p>"
-
-                return html
-            }
-        })
+        }
+        // , {
+        //     title: ' Ops',
+        //     field: 'id',
+        //     align: 'center',
+        //     width: '5%',
+        //     formatter: function (value, row, index) {
+        //         var html = ""
+        //         html += "<div onclick=addFavorite(" + value + ") name='addFavorite' id='addFavorite" + value + "' class='btn-sm btn-success'>Love</div><p>"
+        //         html += "<div onclick=downBase64Image('data:image/jpg;base64," + row.imageBlob + "') class='btn-sm btn-primary'>Download</div><p>"
+        //         // html += "<div onclick=deleteById(" + value + ") name='delete' id='delete" + value + "' class='btn-sm btn-warning'>删除</div><p>"
+        //
+        //         return html
+        //     }
+        // }
+        )
 
     $('#sotu_gank_table').bootstrapTable({
         url: 'sotuGankSearchJson',
