@@ -23,5 +23,5 @@
 
 <#include 'common/foot.ftl'>
 
-
+<#--这里需要从外部引入 js 文件, 因为 freemarker 的语法问题,导致 ES6 的字符串模板不能兼容,会报错-->
 <script src="jianshu_topic.js"></script>
