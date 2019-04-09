@@ -6,6 +6,16 @@ public class Result<T> {
     private String title;
     private boolean success;
 
+    public Result() {
+    }
+
+    public Result(T result, String message, String title, boolean success) {
+        this.result = result;
+        this.message = message;
+        this.title = title;
+        this.success = success;
+    }
+
     public T getResult() {
         return result;
     }

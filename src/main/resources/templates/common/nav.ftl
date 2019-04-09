@@ -80,6 +80,7 @@
                     <ul class="dropdown-menu">
 
                         <li><a href="search_keyword_view" target="_blank">搜索关键字</a></li>
+                        <li><a href="jianshu_topic" target="_blank">配置简书专题</a></li>
                         <li><a href="doSogouImageCrawJob" target="_blank">抓取搜狗图片</a></li>
                         <li><a href="doGankImageCrawJob" target="_blank">抓取干货福利图</a></li>
                         <li><a href="doHuaBanImageCrawJob" target="_blank">抓取花瓣美女</a></li>

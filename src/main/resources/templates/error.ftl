@@ -7,9 +7,11 @@
 <h3>异常堆栈信息：</h3>
 <code>
 
-<#list stackTrace as line >
-    <p>${line}</p>
-</#list>
+    <#if stackTrace?? >
+        <#list stackTrace as line >
+        <p>${line}</p>
+        </#list>
+    </#if>
 
 </code>
 

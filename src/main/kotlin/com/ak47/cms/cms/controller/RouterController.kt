@@ -39,4 +39,9 @@ class RouterController {
         model.addAttribute("requestURI", request.requestURI)
         return ModelAndView("tech_article_view")
     }
+    @GetMapping("jianshu_topic")
+    fun jianshu_topic(model: Model, request: HttpServletRequest): ModelAndView {
+        model.addAttribute("requestURI", request.requestURI)
+        return ModelAndView("jianshu_topic")
+    }
 }
