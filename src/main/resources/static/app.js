@@ -9,7 +9,7 @@ function addFavorite(id) {
             new PNotify({
                 title: 'Collect',
                 styling: 'bootstrap3',
-                text: JSON.stringify(resp),
+                text: JSON.stringify('Added :)'),
                 type: 'success',
                 delay: 500,
             });
