@@ -1,4 +1,4 @@
 <#include 'common/head.ftl'>
-<table id="sotu_table"></table>
+<div id="box"></div>
 <#include 'common/foot.ftl'>
 <script src="sotu_table.js"></script>

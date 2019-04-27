@@ -7,9 +7,9 @@ function addFavorite(id) {
         success: function (resp) {
             // alert(JSON.stringify(resp))
             new PNotify({
-                title: 'Collect',
+                title: 'Add Favorite',
                 styling: 'bootstrap3',
-                text: JSON.stringify('Added :)'),
+                text: 'Loved!',
                 type: 'success',
                 delay: 500,
             });
@@ -739,3 +739,145 @@ var timebar = new function () {
 
 }
 
+
+
+
+var size = 30;
+var page = 0;
+// 定义每一列之间的间隙 为10像素
+var gap = 10;
+
+function fetchAndRender(url, method, data) {
+    $.ajax({
+        url: url,
+        type: method,
+        data: data,
+        success: (res) => {
+            var box = document.getElementById('box');
+            var items = box.children;
+            appendChild(box, res);
+            render(items);
+            // 图片幻灯效果
+            photoviewer();
+        },
+        error: (err) => {
+            console.log(err)
+        }
+    });
+}
+
+// 页面尺寸改变时实时触发
+window.onresize = function () {
+    var box = document.getElementById('box');
+    waterFall(box.children);
+};
+
+function render(items) {
+    setTimeout(() => {
+        waterFall(items);
+    }, 1000)
+}
+
+function waterFall(items) {
+    // 列数  = 页面的宽度 / 图片的宽度
+    var pageWidth = getClient().width;
+    var itemWidth = items[0].offsetWidth;
+    var columns = parseInt(pageWidth / (itemWidth + gap));
+    var arr = [];
+    for (var i = 0; i < items.length; i++) {
+        if (i < columns) {
+            // 确定第一行
+            items[i].style.top = 0;
+            items[i].style.left = (itemWidth + gap) * i + 'px';
+            arr.push(items[i].offsetHeight);
+        } else {
+            // 其他行
+            // 找到数组中最小高度  和 它的索引
+            var minHeight = arr[0];
+            var index = 0;
+            for (var j = 0; j < arr.length; j++) {
+                if (minHeight > arr[j]) {
+                    minHeight = arr[j];
+                    index = j;
+                }
+            }
+            // 设置下一行的第一个盒子位置
+            // top值就是最小列的高度 + gap
+            items[i].style.top = arr[index] + gap + 'px';
+            // left值就是最小列距离左边的距离
+            items[i].style.left = items[index].offsetLeft + 'px';
+
+            // 修改最小列的高度
+            // 最小列的高度 = 当前自己的高度 + 拼接过来的高度 + 间隙的高度
+            arr[index] = arr[index] + items[i].offsetHeight + gap;
+        }
+    }
+}
+
+
+function appendChild(box, res) {
+    var datas = res.content;
+    for (var i = 0; i < datas.length; i++) {
+        var div = document.createElement("div");
+        div.className = "item";
+        div.innerHTML = `<img src="data:image/jpg;base64,${datas[i].imageBlob}"  
+                              data-gallery="manual">
+                              <div onclick="addFavorite(${datas[i].id})" 
+                                   class="glyphicon glyphicon-heart pull-right" 
+                                   style="font-size: 1.5em;color: #ff0000a8;">
+                                   <span style="font-size: 0.8em;">${datas[i].loveCount}</span>
+                              </div>
+        `;
+        box.appendChild(div);
+    }
+}
+
+// clientWidth 处理兼容性
+function getClient() {
+    return {
+        width: window.screen.width || window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth,
+        height: window.screen.height || window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight
+    }
+}
+
+function photoviewer() {
+
+    $('[data-gallery=manual]').click(function (e) {
+
+        e.preventDefault();
+
+        var items = [],
+            // get index of element clicked
+            options = {
+                index: $(this).index(),
+                draggble: true,
+                resizable: true,
+                movable: true,
+                keyboard: true,
+                title: false,
+                modalWidth: 400,
+                modalHeight: 400,
+                ratioThreshold: 0.01,
+                minRatio: 0.1,
+                maxRatio: 16,
+                headToolbar: ['maximize', 'close'],
+                footToolbar: ['zoomIn', 'zoomOut', 'prev', 'fullscreen', 'next', 'actualSize', 'rotateRight'],
+                initMaximized: true,
+                initAnimation: true,
+                zIndex: 9999,
+                progressiveLoading: true
+            };
+
+        // looping to create images array
+        $('[data-gallery=manual]').each(function () {
+            let src = $(this).attr('src');
+            items.push({
+                src: src
+            });
+        });
+
+        new PhotoViewer(items, options); // 参考文档:http://www.jq22.com/yanshi20878
+
+    });
+
+}

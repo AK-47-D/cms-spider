@@ -13,11 +13,11 @@
     <link href="/bower_components/bootstrap-table/src/bootstrap-table.css" rel="stylesheet">
     <link href="/bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
     <link href="/bower_components/pnotify/src/pnotify.css" rel="stylesheet">
-
-    <link href="/wallStreet.css" rel="stylesheet">
-    <link href="/app.css" rel="stylesheet">
-
     <script src="/bower_components/jquery/dist/jquery.js"></script>
+
+    <script src="photoviewer.js"></script>
+    <link href="photoviewer.css" rel="stylesheet">
+
     <script src="/app.js"></script>
 
     <script>
