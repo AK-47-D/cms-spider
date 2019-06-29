@@ -1,4 +1,4 @@
 #!/bin/bash
-
-# 解决freemark乱码
-gradle bootRun -Dfile.encoding=UTF-8
+export GRADLE_HOME=/Users/alilang/soft/gradle-4.2.1
+# 解决freemark乱码  -Dfile.encoding=UTF-8
+$GRADLE_HOME/bin/gradle clean bootRun -Dfile.encoding=UTF-8

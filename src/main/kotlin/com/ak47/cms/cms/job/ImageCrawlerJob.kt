@@ -18,11 +18,6 @@ class ImageCrawlerJob {
         crawImagesService.doSogouImageCrawJob()
     }
 
-    @Scheduled(cron = "0 0 10 */1 * ?")
-    fun doGankImageCrawJob() {
-        println("开始执行定时任务 doGankImageCrawJob： ${Date()}")
-        crawImagesService.doGankImageCrawJob()
-    }
 
     @Scheduled(cron = "0 0 10 */1 * ?")
     fun doCrawHuaBanImagesJob() {

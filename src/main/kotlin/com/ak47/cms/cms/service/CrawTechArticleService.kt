@@ -74,7 +74,6 @@ class CrawTechArticleService {
         try {
             TechArticleRepository.save(TechArticle)
         } catch (e: Exception) {
-            e.printStackTrace()
         }
     }
 

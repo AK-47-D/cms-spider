@@ -3,7 +3,6 @@ package com.ak47.cms.cms.api;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -19,23 +18,27 @@ public class Crawler {
 
     /**
      * 获取初始化后的crawlerWebClient
+     *
      * @return
      * @throws Exception
      */
     public CrawlerWebClient getCrawlerWebClient() {
         return crawlerWebClient;
     }
+
     /**
      * 初始化
+     *
      * @return
      * @throws Exception
      */
-    protected Crawler(){
+    protected Crawler() {
         crawlerWebClient = CrawlerWebClient.instanceCrawlerClient();
     }
 
     /**
      * 获取时间
+     *
      * @return
      * @throws Exception
      */
@@ -49,6 +52,7 @@ public class Crawler {
 
     /**
      * 爬取url的html
+     *
      * @param url
      * @return
      * @throws Exception
@@ -57,9 +61,8 @@ public class Crawler {
         try {
             HtmlPage page = crawlerWebClient.getPage(url);
             logger.info(page.asXml());
-           return page.asXml();
+            return page.asXml();
         } catch (Exception e) {
-            e.printStackTrace();
         }
         return "";
     }

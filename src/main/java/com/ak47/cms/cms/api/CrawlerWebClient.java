@@ -8,7 +8,7 @@ import com.gargoylesoftware.htmlunit.html.HtmlPage;
 import java.io.IOException;
 
 /**
- *  东海陈光剑 2017/11/3; 2019/04/07
+ * 东海陈光剑 2017/11/3; 2019/04/07
  */
 public class CrawlerWebClient {
     private static CrawlerWebClient crawlerWebClient = null;
@@ -51,6 +51,7 @@ public class CrawlerWebClient {
 
     /**
      * 使用 WebClient 方案,避免服务端 403
+     *
      * @param url
      * @return
      * @throws IOException
