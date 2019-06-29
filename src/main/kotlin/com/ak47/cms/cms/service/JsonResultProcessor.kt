@@ -9,11 +9,11 @@ object JsonResultProcessor {
 
     val crawlerWebClient = CrawlerWebClient.instanceCrawlerClient()
 
-    fun getSogouImageCategoryAndUrlList(url: String): MutableList<ImageCategoryAndUrl> {
-        return parseSogouImageCategoryAndUrlList(jsonstr = getUrlContent(url))
+    fun getSogouImageUrlList(url: String): MutableList<ImageCategoryAndUrl> {
+        return parseSogouImageUrlList(jsonstr = getUrlContent(url))
     }
 
-    private fun parseSogouImageCategoryAndUrlList(jsonstr: String): MutableList<ImageCategoryAndUrl> {
+    private fun parseSogouImageUrlList(jsonstr: String): MutableList<ImageCategoryAndUrl> {
         val imageResultList = mutableListOf<ImageCategoryAndUrl>()
         try {
             val obj = JSON.parse(jsonstr) as Map<*, *>

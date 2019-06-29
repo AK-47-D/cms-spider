@@ -3,7 +3,6 @@ package com.ak47.cms.cms.service
 import com.ak47.cms.cms.api.CrawlerWebClient
 import com.ak47.cms.cms.api.ImageSearchApiBuilder
 import com.ak47.cms.cms.dao.ImageRepository
-import com.ak47.cms.cms.dao.SearchKeyWordRepository
 import com.ak47.cms.cms.entity.Image
 import org.jsoup.Jsoup
 import org.slf4j.LoggerFactory
@@ -80,7 +79,7 @@ class CrawImageService {
 
     private fun saveSogouImage(currentPage: Int, pageSize: Int) {
         val api = ImageSearchApiBuilder.build(currentPage, pageSize)
-        JsonResultProcessor.getSogouImageCategoryAndUrlList(api).forEach {
+        JsonResultProcessor.getSogouImageUrlList(api).forEach {
             val category = it.category
             val url = it.url
             if (imageRepository.countByUrl(url) == 0) {
@@ -89,7 +88,10 @@ class CrawImageService {
                 image.url = url
                 image.sourceType = 0
                 image.imageBlob = getByteArray(url)
-                imageRepository.save(image)
+                try {
+                    imageRepository.save(image)
+                } catch (e: Exception) {
+                }
             }
         }
     }

@@ -1,9 +1,7 @@
 package com.ak47.cms.cms
 
 import com.ak47.cms.cms.dao.JianShuTopicRepository
-import com.ak47.cms.cms.dao.SearchKeyWordRepository
 import com.ak47.cms.cms.entity.JianShuTopic
-import com.ak47.cms.cms.entity.SearchKeyWord
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.CommandLineRunner
 import org.springframework.boot.autoconfigure.SpringBootApplication
@@ -13,8 +11,6 @@ import org.springframework.core.annotation.Order
 import org.springframework.scheduling.annotation.EnableScheduling
 import org.springframework.stereotype.Component
 import org.springframework.transaction.annotation.EnableTransactionManagement
-import org.springframework.transaction.annotation.Transactional
-import java.io.File
 
 @SpringBootApplication
 @EnableScheduling
@@ -28,24 +24,11 @@ fun main(args: Array<String>) {
 
 @Component
 @Order(value = Ordered.LOWEST_PRECEDENCE)
-class initSearchKeyWordRunner : CommandLineRunner {
-    @Autowired
-    lateinit var searchKeyWordRepository: SearchKeyWordRepository
+class InitRunner : CommandLineRunner {
     @Autowired
     lateinit var JianShuTopicRepository: JianShuTopicRepository
 
     override fun run(vararg args: String) {
-        var keyWords = File("搜索关键词列表.data").readLines()
-        keyWords.forEach {
-            try {
-                val SearchKeyWord = SearchKeyWord()
-                SearchKeyWord.keyWord = it
-                searchKeyWordRepository.saveOnNoDuplicateKey(it)
-            } catch (e: Exception) {
-
-            }
-        }
-
         val 简书专题URLs = arrayOf(
                 "http://www.jianshu.com/c/498ebcfd27ad",
                 "http://www.jianshu.com/c/c3fe8e7aeb09",

@@ -4,35 +4,30 @@ import java.util.*
 import javax.persistence.*
 
 @Entity
-@Table(indexes = arrayOf(
-        Index(name = "idx_url", unique = true, columnList = "url"),
-        Index(name = "idx_category", unique = false, columnList = "category")))
+@Table(indexes = arrayOf(Index(name = "idx_url", unique = true, columnList = "url")))
 class Image {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long = -1
     @Version
-    var version: Int = 0
+    var version = 0
 
-    @Column(length = 100)
-    var category: String = ""
-    var isFavorite: Int = 0
-    var loveCount: Int = 0
+    @Column(length = 1000)
+    var category = ""
 
-    @Column(length = 100, unique = true, nullable = false)
-    var url: String = ""
+    @Column(length = 200)
+    var url = ""
 
-    var gmtCreated: Date = Date()
-    var gmtModified: Date = Date()
-    var isDeleted: Int = 0  //1 Yes 0 No
-    var deletedDate: Date = Date()
+    var isFavorite = 0
+    var loveCount = 0
+
+    var gmtCreated = Date()
+    var gmtModified = Date()
+    var isDeleted = 0  //1 Yes 0 No
+    var deletedDate = Date()
 
     @Lob
-    var imageBlob: ByteArray = byteArrayOf()
-    /* 0-Baidu  1-Gank  2-HuaBan*/
-    var sourceType: Int = 0
+    var imageBlob = byteArrayOf()
+    var sourceType = 0
 
-    override fun toString(): String {
-        return "Image(id=$id, version=$version, category='$category', isFavorite=$isFavorite, url='$url', gmtCreated=$gmtCreated, gmtModified=$gmtModified, isDeleted=$isDeleted, deletedDate=$deletedDate)"
-    }
 }

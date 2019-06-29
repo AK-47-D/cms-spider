@@ -1,56 +1,35 @@
 package com.ak47.cms.cms.controller
 
-import com.ak47.cms.cms.job.BatchUpdateJob
 import com.ak47.cms.cms.service.CrawImageService
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.stereotype.Controller
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RequestMethod
-import org.springframework.web.bind.annotation.ResponseBody
+import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.RestController
 
 /**
  * Created by jack on 2017/7/22.
  */
 
-@Controller
+@RestController
 class CrawImageController {
 
     @Autowired
     lateinit var crawImageService: CrawImageService
-    @Autowired
-    lateinit var batchUpdateJob: BatchUpdateJob
 
-    @RequestMapping(value = "doSogouImageCrawJob", method = arrayOf(RequestMethod.GET))
-    @ResponseBody
+    @GetMapping("doSogouImageCrawJob")
     fun doSogouImageCrawJob(): String {
         Thread {
             crawImageService.doSogouImageCrawJob()
-
         }.start()
-
         return "doSogouImageCrawJob JOB Started"
     }
 
 
-    @RequestMapping(value = "doHuaBanImageCrawJob", method = arrayOf(RequestMethod.GET))
-    @ResponseBody
+    @GetMapping("doHuaBanImageCrawJob")
     fun doHuaBanImageCrawJob(): String {
         Thread {
             crawImageService.doCrawHuaBanImages()
-
         }.start()
-
         return "doCrawHuaBanImages JOB Started"
     }
-
-    @RequestMapping(value = "doBatchUpdateJob", method = arrayOf(RequestMethod.GET))
-    @ResponseBody
-    fun BatchUpdateJob(): String {
-
-        batchUpdateJob.job()
-
-        return "BatchUpdateJob Started"
-    }
-
 
 }

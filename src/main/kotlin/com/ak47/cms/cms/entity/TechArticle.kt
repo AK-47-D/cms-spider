@@ -11,8 +11,10 @@ open class TechArticle {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long = -1
 
-    var url = "URL"
-    var title = "Kotlin 使用 Spring WebFlux 实现响应式编程"
+    @Column(length = 200)
+    var url = ""
+    @Column(length = 500)
+    var title = ""
 
     @Lob
     var simpleContent = "文章摘要"

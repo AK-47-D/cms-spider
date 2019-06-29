@@ -60,17 +60,7 @@ public class CrawlerWebClient {
         WebClient webClient = instanceWebClient();
         Page page = webClient.getPage(url);
         WebResponse response = page.getWebResponse();
-        if (response.getContentType().equals("application/json")) {
-            return response.getContentAsString();
-        }
-        return null;
+        return response.getContentAsString();
     }
 
-
-    public void webClientClose() {
-        if (webClient == null) {
-            webClient.close();
-            webClient = null;
-        }
-    }
 }

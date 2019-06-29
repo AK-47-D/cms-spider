@@ -74,14 +74,12 @@
                         设置 <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
-
-                        <li><a href="search_keyword_view" target="_blank">搜索关键字</a></li>
-                        <li><a href="jianshu_topic" target="_blank">配置简书专题</a></li>
                         <li><a href="doSogouImageCrawJob" target="_blank">抓取搜狗图片</a></li>
                         <li><a href="doHuaBanImageCrawJob" target="_blank">抓取花瓣美女</a></li>
                         <li><a href="doCrawITEyeTechArticle" target="_blank">抓取ITEye技术文章</a></li>
                         <li><a href="doCrawJianShuTechArticle" target="_blank">抓取简书文章</a></li>
-                        <li><a href="doBatchUpdateJob" target="_blank">更新图片总数</a></li>
+                        <li class="divider"></li>
+                        <li><a href="jianshu_topic" target="_blank">配置简书专题</a></li>
                     </ul>
                 </li>
 

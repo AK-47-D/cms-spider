@@ -16,12 +16,6 @@ class RouterController {
         return ModelAndView("sotu_view")
     }
 
-    @RequestMapping(value = "sotu_gank_view")
-    fun sotu_gank_view(model: Model, request: HttpServletRequest): ModelAndView {
-        model.addAttribute("requestURI", request.requestURI)
-        return ModelAndView("sotu_gank_view")
-    }
-
     @RequestMapping(value = "sotu_huaban_view")
     fun sotu_huaban_view(model: Model, request: HttpServletRequest): ModelAndView {
         model.addAttribute("requestURI", request.requestURI)
@@ -39,6 +33,7 @@ class RouterController {
         model.addAttribute("requestURI", request.requestURI)
         return ModelAndView("tech_article_view")
     }
+
     @GetMapping("jianshu_topic")
     fun jianshu_topic(model: Model, request: HttpServletRequest): ModelAndView {
         model.addAttribute("requestURI", request.requestURI)
