@@ -19,7 +19,8 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 class ImageController {
 
-    @Autowired lateinit var imageRepository: ImageRepository
+    @Autowired
+    lateinit var imageRepository: ImageRepository
 
 
     @GetMapping("sotuJson")
@@ -56,51 +57,7 @@ class ImageController {
     }
 
 
-    private fun getPageResult(page: Int, size: Int): Page<Image> {
-        val sort = Sort(Sort.Direction.DESC, "gmtCreated")
-        val pageable = PageRequest.of(page, size, sort)
-        return imageRepository.findAll(pageable)
-    }
-
-    private fun getPageResult(page: Int, size: Int, searchText: String): Page<Image> {
-        val sort = Sort(Sort.Direction.DESC, "gmtCreated")
-        // 注意：PageRequest.of(page,size,sort) page 默认是从0开始
-        val pageable = PageRequest.of(page, size, sort)
-        if (searchText == "") {
-            return imageRepository.findAll(pageable)
-        } else {
-            return imageRepository.search(searchText, pageable)
-        }
-    }
-
-    private fun getGankPageResult(page: Int, size: Int, searchText: String): Page<Image> {
-        val sort = Sort(Sort.Direction.DESC, "gmtCreated")
-        // 注意：PageRequest.of(page,size,sort) page 默认是从0开始
-        val pageable = PageRequest.of(page, size, sort)
-        if (searchText == "") {
-
-            val findGankAll = imageRepository.findGankAll(pageable)
-            return findGankAll
-        } else {
-            return imageRepository.searchGank(searchText, pageable)
-        }
-    }
-
-    private fun getFavoritePageResult(page: Int, size: Int, searchText: String): Page<Image> {
-        val sort = Sort(Sort.Direction.DESC, "loveCount")
-        val pageable = PageRequest.of(page, size, sort)
-        if (searchText == "") {
-            val allFavorite = imageRepository.findAllFavorite(pageable)
-            return allFavorite
-        } else {
-            val searchFavorite = imageRepository.searchFavorite(searchText, pageable)
-            return searchFavorite
-        }
-    }
-
-
     @GetMapping("sotuSearchByTypeJson")
-
     fun sotuSearchByTypeJson(@RequestParam(value = "page", defaultValue = "0") page: Int,
                              @RequestParam(value = "size", defaultValue = "10") size: Int,
                              @RequestParam(value = "searchText", defaultValue = "") searchText: String,
@@ -112,12 +69,50 @@ class ImageController {
     private fun getPageResultByType(page: Int, size: Int, searchText: String, sourceType: Int): Page<Image> {
         val sort = Sort(Sort.Direction.DESC, "gmtCreated")
         val pageable = PageRequest.of(page, size, sort)
-        if (searchText == "") {
-            return imageRepository.findAllImageByType(sourceType, pageable)
+        return if (searchText == "") {
+            imageRepository.findAllImageByType(sourceType, pageable)
         } else {
-            return imageRepository.searchImageByType(sourceType, searchText, pageable)
+            imageRepository.searchImageByType(sourceType, searchText, pageable)
         }
     }
 
+
+    private fun getPageResult(page: Int, size: Int): Page<Image> {
+        val sort = Sort(Sort.Direction.DESC, "gmtCreated")
+        val pageable = PageRequest.of(page, size, sort)
+        return imageRepository.findAll(pageable)
+    }
+
+    private fun getPageResult(page: Int, size: Int, searchText: String): Page<Image> {
+        val sort = Sort(Sort.Direction.DESC, "gmtCreated")
+        // 注意：PageRequest.of(page,size,sort) page 默认是从0开始
+        val pageable = PageRequest.of(page, size, sort)
+        return if (searchText == "") {
+            imageRepository.findAll(pageable)
+        } else {
+            imageRepository.search(searchText, pageable)
+        }
+    }
+
+    private fun getGankPageResult(page: Int, size: Int, searchText: String): Page<Image> {
+        val sort = Sort(Sort.Direction.DESC, "gmtCreated")
+        // 注意：PageRequest.of(page,size,sort) page 默认是从0开始
+        val pageable = PageRequest.of(page, size, sort)
+        return if (searchText == "") {
+            imageRepository.findGankAll(pageable)
+        } else {
+            imageRepository.searchGank(searchText, pageable)
+        }
+    }
+
+    private fun getFavoritePageResult(page: Int, size: Int, searchText: String): Page<Image> {
+        val sort = Sort(Sort.Direction.DESC, "gmtModified")
+        val pageable = PageRequest.of(page, size, sort)
+        return if (searchText == "") {
+            imageRepository.findAllFavorite(pageable)
+        } else {
+            imageRepository.searchFavorite(searchText, pageable)
+        }
+    }
 
 }
