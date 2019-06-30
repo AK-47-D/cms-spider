@@ -50,7 +50,7 @@
 * There must be no spaces in the enclosed data set
 *
 * Otherwise values must be an array of numbers or null values
-*    <p>Sparkline: <span id="sparkline1">This text replaced if the browser is compatible</span></p>
+*    <p>Sparkline: <span code="sparkline1">This text replaced if the browser is compatible</span></p>
 *    $('#sparkline1').sparkline([1,4,6,6,8,5,3,5])
 *    $('#sparkline2').sparkline([1,4,6,null,null,5,3,5])
 *

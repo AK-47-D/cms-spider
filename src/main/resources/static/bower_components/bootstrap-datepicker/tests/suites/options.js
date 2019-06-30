@@ -281,7 +281,7 @@ test('Today Button: today visibility when enabled', function(){
     ok(picker.find('.datepicker-years tfoot .today').is(':visible'), 'Today button visible');
 });
 
-test('Today Button: data-api', function(){
+test('Today Button: data-builder', function(){
     var input = $('<input data-date-today-btn="true" />')
                 .appendTo('#qunit-fixture')
                 .val('2012-03-05')

@@ -55,7 +55,7 @@ var
 	rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g,
 
 	// A simple way to check for HTML strings
-	// Prioritize #id over <tag> to avoid XSS via location.hash (#9521)
+	// Prioritize #code over <tag> to avoid XSS via location.hash (#9521)
 	rquickExpr = /^(?:[^#<]*(<[\w\W]+>)[^>]*$|#([\w\-]*)$)/,
 
 	// Match a standalone tag
@@ -119,7 +119,7 @@ jQuery.fn = jQuery.prototype = {
 				match = rquickExpr.exec( selector );
 			}
 
-			// Match html or make sure no context is specified for #id
+			// Match html or make sure no context is specified for #code
 			if ( match && (match[1] || !context) ) {
 
 				// HANDLE: $(html) -> $(array)
@@ -135,7 +135,7 @@ jQuery.fn = jQuery.prototype = {
 
 					return jQuery.merge( this, selector );
 
-				// HANDLE: $(#id)
+				// HANDLE: $(#code)
 				} else {
 					elem = document.getElementById( match[2] );
 
@@ -2697,7 +2697,7 @@ jQuery.event = {
 			// If event changes its type, use the special event handlers for the changed type
 			special = jQuery.event.special[ type ] || {};
 
-			// If selector defined, determine special event api type, otherwise given type
+			// If selector defined, determine special event builder type, otherwise given type
 			type = ( selector ? special.delegateType : special.bindType ) || type;
 
 			// Update special based on newly reset type
@@ -5248,7 +5248,7 @@ if ( document.querySelectorAll ) {
 					} else {
 						context.setAttribute( "id", nid );
 					}
-					nid = "[id='" + nid + "'] ";
+					nid = "[code='" + nid + "'] ";
 
 					i = groups.length;
 					while ( i-- ) {
@@ -6243,7 +6243,7 @@ jQuery.extend({
 
 			// Weird iteration because IE will replace the length property
 			// with an element if you are cloning the body and one of the
-			// elements on the page has a name or id of "length"
+			// elements on the page has a name or code of "length"
 			for ( i = 0; srcElements[i]; ++i ) {
 				// Ensure that the destination node is not null; Fixes #9587
 				if ( destElements[i] ) {

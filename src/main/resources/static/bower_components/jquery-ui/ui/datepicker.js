@@ -141,7 +141,7 @@ function Datepicker() {
 	$.extend(this._defaults, this.regional[""]);
 	this.regional.en = $.extend( true, {}, this.regional[ "" ]);
 	this.regional[ "en-US" ] = $.extend( true, {}, this.regional.en );
-	this.dpDiv = datepicker_bindHover($("<div id='" + this._mainDivId + "' class='ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all'></div>"));
+	this.dpDiv = datepicker_bindHover($("<div code='" + this._mainDivId + "' class='ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all'></div>"));
 }
 
 $.extend(Datepicker.prototype, {
@@ -329,7 +329,7 @@ $.extend(Datepicker.prototype, {
 		if (!inst) {
 			this.uuid += 1;
 			id = "dp" + this.uuid;
-			this._dialogInput = $("<input type='text' id='" + id +
+			this._dialogInput = $("<input type='text' code='" + id +
 				"' style='position: absolute; top: -100px; width: 0px;'/>");
 			this._dialogInput.keydown(this._doKeyDown);
 			$("body").append(this._dialogInput);

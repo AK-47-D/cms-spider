@@ -25,8 +25,6 @@ OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
 NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
 EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
-
-
 // Get JSON data
 treeJSON = d3.json("flare.json", function(error, treeData) {
     // Calculate total nodes, max label length

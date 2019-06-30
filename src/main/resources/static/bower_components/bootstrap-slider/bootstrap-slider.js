@@ -33,7 +33,7 @@
 						'</div>')
 							.insertBefore(this.element)
 							.append(this.element);
-		this.id = this.element.data('slider-id')||options.id;
+		this.id = this.element.data('slider-code')||options.id;
 		if (this.id) {
 			this.picker[0].id = this.id;
 		}

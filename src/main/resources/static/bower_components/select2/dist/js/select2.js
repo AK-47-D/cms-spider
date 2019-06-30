@@ -412,7 +412,7 @@ var requirejs, require, define;
             //Using a non-zero value because of concern for what old browsers
             //do, and latest browsers "upgrade" to 4 if lower value is used:
             //http://www.whatwg.org/specs/web-apps/current-work/multipage/timers.html#dom-windowtimers-settimeout:
-            //If want a value immediately, use require('id') instead -- something
+            //If want a value immediately, use require('code') instead -- something
             //that works in almond on the global level, but not guaranteed and
             //unlikely to work in other AMD implementations.
             setTimeout(function () {
@@ -891,7 +891,7 @@ S2.define('select2/results',[
 
         var item = $.data(this, 'data');
 
-        // id needs to be converted to a string when comparing
+        // code needs to be converted to a string when comparing
         var id = '' + item.id;
 
         if ((item.element != null && item.element.selected) ||

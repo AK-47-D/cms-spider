@@ -1,6 +1,6 @@
 package com.ak47.cms.cms.service
 
-import com.ak47.cms.cms.api.CrawlerWebClient
+import com.ak47.cms.cms.builder.CrawlerWebClient
 import com.ak47.cms.cms.dao.JianShuTopicRepository
 import com.ak47.cms.cms.dao.TechArticleRepository
 import com.ak47.cms.cms.entity.TechArticle

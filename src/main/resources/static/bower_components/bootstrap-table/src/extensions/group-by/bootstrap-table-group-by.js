@@ -9,17 +9,17 @@
     'use strict';
 
     var originalRowAttr,
-        dataTTId = 'data-tt-id',
-        dataTTParentId = 'data-tt-parent-id',
+        dataTTId = 'data-tt-code',
+        dataTTParentId = 'data-tt-parent-code',
         obj = {},
         parentId = undefined;
 
     var getParentRowId = function (that, id) {
-        var parentRows = that.$body.find('tr').not('[' + 'data-tt-parent-id]');
+        var parentRows = that.$body.find('tr').not('[' + 'data-tt-parent-code]');
 
         for (var i = 0; i < parentRows.length; i++) {
             if (i === id) {
-                return $(parentRows[i]).attr('data-tt-id');
+                return $(parentRows[i]).attr('data-tt-code');
             }
         }
 

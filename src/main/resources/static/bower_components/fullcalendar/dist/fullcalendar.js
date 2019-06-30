@@ -4999,7 +4999,7 @@ var Grid = FC.Grid = Class.extend(ListenerMixin, {
 ----------------------------------------------------------------------------------------------------------------------
 
 Data Types:
-	event - { title, id, start, (end), whatever }
+	event - { title, code, start, (end), whatever }
 	location - { start, (end), allDay }
 	rawEventRange - { start, end }
 	eventRange - { start, end, isStart, isEnd }
@@ -13375,7 +13375,7 @@ function EventManager() { // assumed to be a calendar
 		return props;
 	}
 
-	// non-date-related, non-id-related, non-secret
+	// non-date-related, non-code-related, non-secret
 	function isMiscEventPropName(name) {
 		return !/^_|^(id|allDay|start|end)$/.test(name);
 	}

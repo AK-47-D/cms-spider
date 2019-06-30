@@ -1,4 +1,4 @@
-package com.ak47.cms.cms.api;
+package com.ak47.cms.cms.builder;
 
 import com.gargoylesoftware.htmlunit.Page;
 import com.gargoylesoftware.htmlunit.WebClient;

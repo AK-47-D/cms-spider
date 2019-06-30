@@ -652,18 +652,18 @@ define(["./raphael.core"], function(R) {
         \*/
         node.raphael = true;
         /*\
-         * Element.id
+         * Element.code
          [ property (number) ]
          **
-         * Unique id of the element. Especially useful when you want to listen to events of the element,
-         * because all events are fired in format `<module>.<action>.<id>`. Also useful for @Paper.getById method.
+         * Unique code of the element. Especially useful when you want to listen to events of the element,
+         * because all events are fired in format `<module>.<action>.<code>`. Also useful for @Paper.getById method.
         \*/
         this.id = guid();
         node.raphaelid = this.id;
 
         /**
-        * Method that returns a 5 letter/digit id, enough for 36^5 = 60466176 elements
-        * @returns {string} id
+        * Method that returns a 5 letter/digit code, enough for 36^5 = 60466176 elements
+        * @returns {string} code
         */
         function guid() {
             return ("0000" + (Math.random()*Math.pow(36,5) << 0).toString(36)).slice(-5);

@@ -690,7 +690,7 @@
         this.$el.find('>tbody>tr').each(function (y) {
             var row = {};
 
-            // save tr's id, class and data-* attributes
+            // save tr's code, class and data-* attributes
             row._id = $(this).attr('id');
             row._class = $(this).attr('class');
             row._data = getRealDataAttr($(this).data());
@@ -715,7 +715,7 @@
                 var field = that.columns[x].field;
 
                 row[field] = $(this).html();
-                // save td's id, class and data-* attributes
+                // save td's code, class and data-* attributes
                 row['_' + field + '_id'] = $(this).attr('id');
                 row['_' + field + '_class'] = $(this).attr('class');
                 row['_' + field + '_rowspan'] = $(this).attr('rowspan');
@@ -1645,7 +1645,7 @@
 
         html.push('<tr',
             sprintf(' %s', htmlAttributes.join(' ')),
-            sprintf(' id="%s"', $.isArray(item) ? undefined : item._id),
+            sprintf(' code="%s"', $.isArray(item) ? undefined : item._id),
             sprintf(' class="%s"', style.classes || ($.isArray(item) ? undefined : item._class)),
             sprintf(' data-index="%s"', i),
             sprintf(' data-uniqueid="%s"', item[this.options.uniqueId]),
@@ -1697,9 +1697,9 @@
 
             style = sprintf('style="%s"', csses.concat(that.header.styles[j]).join('; '));
 
-            // handle td's id and class
+            // handle td's code and class
             if (item['_' + field + '_id']) {
-                id_ = sprintf(' id="%s"', item['_' + field + '_id']);
+                id_ = sprintf(' code="%s"', item['_' + field + '_id']);
             }
             if (item['_' + field + '_class']) {
                 class_ = sprintf(' class="%s"', item['_' + field + '_class']);

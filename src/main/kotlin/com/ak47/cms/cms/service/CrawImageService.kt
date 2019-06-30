@@ -1,7 +1,7 @@
 package com.ak47.cms.cms.service
 
-import com.ak47.cms.cms.api.CrawlerWebClient
-import com.ak47.cms.cms.api.ImageSearchApiBuilder
+import com.ak47.cms.cms.builder.CrawlerWebClient
+import com.ak47.cms.cms.builder.ImageSearchApiBuilder
 import com.ak47.cms.cms.dao.ImageRepository
 import com.ak47.cms.cms.entity.Image
 import org.jsoup.Jsoup

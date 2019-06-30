@@ -37,7 +37,7 @@ test('converted into dataAdapter.current', function (assert) {
     assert.equal(
       item.id,
       '1',
-      'The id should have been set by initSelection'
+      'The code should have been set by initSelection'
     );
 
     assert.equal(
@@ -112,7 +112,7 @@ test('only called once', function (assert) {
     assert.equal(
       item.id,
       '1',
-      'The id should match the one given by initSelection'
+      'The code should match the one given by initSelection'
     );
 
     assert.equal(
@@ -140,7 +140,7 @@ test('only called once', function (assert) {
     assert.equal(
       item.id,
       '3',
-      'The id should match the value given in the DOM'
+      'The code should match the value given in the DOM'
     );
 
     assert.equal(
@@ -204,7 +204,7 @@ test('converted into dataAdapter.query automatically', function (assert) {
     assert.equal(
       item.id,
       'test',
-      'The id should have been returned from the query function'
+      'The code should have been returned from the query function'
     );
 
     assert.equal(

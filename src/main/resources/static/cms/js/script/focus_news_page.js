@@ -28,7 +28,7 @@ $(function () {
     })
 
     $('#global_table').bootstrapTable({
-        url: '/api/FocusLiveNews',
+        url: '/builder/FocusLiveNews',
         sidePagination: "server",
         queryParamsType: 'page,size,type',
         contentType: "application/x-www-form-urlencoded",
@@ -91,7 +91,7 @@ $(function () {
     })
 
     $('#a_stock_table').bootstrapTable({
-        url: '/api/FocusLiveNews',
+        url: '/builder/FocusLiveNews',
         sidePagination: "server",
         queryParamsType: 'page,size,type',
         contentType: "application/x-www-form-urlencoded",
@@ -153,7 +153,7 @@ $(function () {
     })
 
     $('#us_stock_table').bootstrapTable({
-        url: '/api/FocusLiveNews',
+        url: '/builder/FocusLiveNews',
         sidePagination: "server",
         queryParamsType: 'page,size,type',
         contentType: "application/x-www-form-urlencoded",
@@ -215,7 +215,7 @@ $(function () {
     })
 
     $('#forex_table').bootstrapTable({
-        url: '/api/FocusLiveNews',
+        url: '/builder/FocusLiveNews',
         sidePagination: "server",
         queryParamsType: 'page,size,type',
         contentType: "application/x-www-form-urlencoded",
@@ -278,7 +278,7 @@ $(function () {
     })
 
     $('#commodity_table').bootstrapTable({
-        url: '/api/FocusLiveNews',
+        url: '/builder/FocusLiveNews',
         sidePagination: "server",
         queryParamsType: 'page,size,type',
         contentType: "application/x-www-form-urlencoded",

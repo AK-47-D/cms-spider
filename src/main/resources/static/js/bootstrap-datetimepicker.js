@@ -1872,7 +1872,7 @@
    * ================== */
 
   $(document).on(
-    'focus.datetimepicker.data-api click.datetimepicker.data-api',
+    'focus.datetimepicker.data-builder click.datetimepicker.data-builder',
     '[data-provide="datetimepicker"]',
     function (e) {
       var $this = $(this);

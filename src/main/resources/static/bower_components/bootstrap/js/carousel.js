@@ -224,8 +224,8 @@
   }
 
   $(document)
-    .on('click.bs.carousel.data-api', '[data-slide]', clickHandler)
-    .on('click.bs.carousel.data-api', '[data-slide-to]', clickHandler)
+    .on('click.bs.carousel.data-builder', '[data-slide]', clickHandler)
+    .on('click.bs.carousel.data-builder', '[data-slide-to]', clickHandler)
 
   $(window).on('load', function () {
     $('[data-ride="carousel"]').each(function () {

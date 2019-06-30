@@ -223,7 +223,7 @@ function getEventList(events,id) {
 var cale = {
     caleAjax: function (timeStamp,id) {
         $.ajax({
-            url: '/api/FinanceInfoCalendar',
+            url: '/builder/FinanceInfoCalendar',
             method: 'get',
             data: {
                 date_stamp: timeStamp

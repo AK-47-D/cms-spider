@@ -14,7 +14,7 @@
 
     var showAvdSearch = function(pColumns, searchTitle, searchText, that) {
         if (!$("#avdSearchModal" + "_" + that.options.idTable).hasClass("modal")) {
-            var vModal = sprintf("<div id=\"avdSearchModal%s\"  class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"mySmallModalLabel\" aria-hidden=\"true\">", "_" + that.options.idTable);
+            var vModal = sprintf("<div code=\"avdSearchModal%s\"  class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"mySmallModalLabel\" aria-hidden=\"true\">", "_" + that.options.idTable);
             vModal += "<div class=\"modal-dialog modal-xs\">";
             vModal += " <div class=\"modal-content\">";
             vModal += "  <div class=\"modal-header\">";
@@ -22,7 +22,7 @@
             vModal += sprintf("   <h4 class=\"modal-title\">%s</h4>", searchTitle);
             vModal += "  </div>";
             vModal += "  <div class=\"modal-body modal-body-custom\">";
-            vModal += sprintf("   <div class=\"container-fluid\" id=\"avdSearchModalContent%s\" style=\"padding-right: 0px;padding-left: 0px;\" >", "_" + that.options.idTable);
+            vModal += sprintf("   <div class=\"container-fluid\" code=\"avdSearchModalContent%s\" style=\"padding-right: 0px;padding-left: 0px;\" >", "_" + that.options.idTable);
             vModal += "   </div>";
             vModal += "  </div>";
             vModal += "  </div>";
@@ -55,14 +55,14 @@
 
     var createFormAvd = function(pColumns, searchText, that) {
         var htmlForm = [];
-        htmlForm.push(sprintf('<form class="form-horizontal" id="%s" action="%s" >', that.options.idForm, that.options.actionForm));
+        htmlForm.push(sprintf('<form class="form-horizontal" code="%s" action="%s" >', that.options.idForm, that.options.actionForm));
         for (var i in pColumns) {
             var vObjCol = pColumns[i];
             if (!vObjCol.checkbox && vObjCol.visible && vObjCol.searchable) {
                 htmlForm.push('<div class="form-group">');
                 htmlForm.push(sprintf('<label class="col-sm-4 control-label">%s</label>', vObjCol.title));
                 htmlForm.push('<div class="col-sm-6">');
-                htmlForm.push(sprintf('<input type="text" class="form-control input-md" name="%s" placeholder="%s" id="%s">', vObjCol.field, vObjCol.title, vObjCol.field));
+                htmlForm.push(sprintf('<input type="text" class="form-control input-md" name="%s" placeholder="%s" code="%s">', vObjCol.field, vObjCol.title, vObjCol.field));
                 htmlForm.push('</div>');
                 htmlForm.push('</div>');
             }
@@ -70,7 +70,7 @@
 
         htmlForm.push('<div class="form-group">');
         htmlForm.push('<div class="col-sm-offset-9 col-sm-3">');
-        htmlForm.push(sprintf('<button type="button" id="btnCloseAvd%s" class="btn btn-default" >%s</button>', "_" + that.options.idTable, searchText));
+        htmlForm.push(sprintf('<button type="button" code="btnCloseAvd%s" class="btn btn-default" >%s</button>', "_" + that.options.idTable, searchText));
         htmlForm.push('</div>');
         htmlForm.push('</div>');
         htmlForm.push('</form>');

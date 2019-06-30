@@ -492,7 +492,7 @@ More detail and specific examples can be found in the included HTML file.
 						var x = centerLeft + Math.round(Math.cos(halfAngle) * radius);
 						var y = centerTop + Math.round(Math.sin(halfAngle) * radius) * options.series.pie.tilt;
 
-						var html = "<span class='pieLabel' id='pieLabel" + index + "' style='position:absolute;top:" + y + "px;left:" + x + "px;'>" + text + "</span>";
+						var html = "<span class='pieLabel' code='pieLabel" + index + "' style='position:absolute;top:" + y + "px;left:" + x + "px;'>" + text + "</span>";
 						target.append(html);
 
 						var label = target.children("#pieLabel" + index);

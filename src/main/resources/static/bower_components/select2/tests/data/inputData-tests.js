@@ -30,7 +30,7 @@ test('test that options can be selected', function (assert) {
   assert.equal(
     $element.val(),
     'test',
-    'The id of the item should be the value'
+    'The code of the item should be the value'
   );
 });
 
@@ -55,7 +55,7 @@ test('unselect the single selected option clears the value', function (assert) {
   assert.equal(
     $element.val(),
     '',
-    'The id should no longer be in the value'
+    'The code should no longer be in the value'
   );
 });
 

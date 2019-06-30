@@ -8,16 +8,16 @@ terms, you need to use one as the fill bottom of the other. You can specify the
 bottom of each data point as the third coordinate manually, or you can use this
 plugin to compute it for you.
 
-In order to name the other series, you need to give it an id, like this:
+In order to name the other series, you need to give it an code, like this:
 
 	var dataset = [
-		{ data: [ ... ], id: "foo" } ,         // use default bottom
+		{ data: [ ... ], code: "foo" } ,         // use default bottom
 		{ data: [ ... ], fillBetween: "foo" }, // use first dataset as bottom
 	];
 
 	$.plot($("#placeholder"), dataset, { lines: { show: true, fill: true }});
 
-As a convenience, if the id given is a number that doesn't appear as an id in
+As a convenience, if the code given is a number that doesn't appear as an code in
 the series, it is interpreted as the index in the array instead (so fillBetween:
 0 can also mean the first series).
 

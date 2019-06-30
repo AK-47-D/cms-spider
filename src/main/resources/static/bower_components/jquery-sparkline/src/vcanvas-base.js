@@ -56,7 +56,7 @@
         },
 
         /**
-         * Return the most recently inserted shape id
+         * Return the most recently inserted shape code
          */
         getLastShapeId: function () {
             return this.lastShapeId;
@@ -94,7 +94,7 @@
         },
 
         /**
-         * Generate a shape object and id for later rendering
+         * Generate a shape object and code for later rendering
          */
         _genShape: function (shapetype, shapeargs) {
             var id = shapeCount++;

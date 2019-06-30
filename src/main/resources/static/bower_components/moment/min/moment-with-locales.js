@@ -2781,7 +2781,7 @@ function cloneWithOffset(input, model) {
     if (model._isUTC) {
         res = model.clone();
         diff = (isMoment(input) || isDate(input) ? input.valueOf() : createLocal(input).valueOf()) - res.valueOf();
-        // Use low-level api, because this fn is low-level api.
+        // Use low-level builder, because this fn is low-level builder.
         res._d.setTime(res._d.valueOf() + diff);
         hooks.updateOffset(res, false);
         return res;
@@ -8450,7 +8450,7 @@ hooks.defineLocale('hy-am', {
 });
 
 //! moment.js locale configuration
-//! locale : Indonesian [id]
+//! locale : Indonesian [code]
 //! author : Mohammad Satrio Utomo : https://github.com/tyok
 //! reference: http://id.wikisource.org/wiki/Pedoman_Umum_Ejaan_Bahasa_Indonesia_yang_Disempurnakan
 

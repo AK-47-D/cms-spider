@@ -132,7 +132,7 @@ define([
 
         var item = $.data(this, 'data');
 
-        // id needs to be converted to a string when comparing
+        // code needs to be converted to a string when comparing
         var id = '' + item.id;
 
         if ((item.element != null && item.element.selected) ||

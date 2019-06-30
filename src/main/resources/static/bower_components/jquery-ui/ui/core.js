@@ -69,7 +69,7 @@ $.fn.extend({
 		return function() {
 			return this.each(function() {
 				if ( !this.id ) {
-					this.id = "ui-id-" + ( ++uuid );
+					this.id = "ui-code-" + ( ++uuid );
 				}
 			});
 		};

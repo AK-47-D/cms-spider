@@ -22,7 +22,7 @@ test('current gets default for single', function (assert) {
     assert.equal(
       option.id,
       'One',
-      'The value of the option tag should be the id'
+      'The value of the option tag should be the code'
     );
 
     assert.equal(
@@ -69,7 +69,7 @@ test('current gets options with explicit value', function (assert) {
     assert.equal(
       option.id,
       '1',
-      'The option value should be the selected id'
+      'The option value should be the selected code'
     );
 
     assert.equal(
@@ -99,7 +99,7 @@ test('current gets options with implicit value', function (assert) {
     assert.equal(
       option.id,
       'One',
-      'The id should be the same as the option text'
+      'The code should be the same as the option text'
     );
 
     assert.equal(
@@ -157,7 +157,7 @@ test('multiple adds to the old value', function (assert) {
   assert.deepEqual($select.val(), ['One', 'Two']);
 });
 
-test('duplicates - single - same id on select triggers change',
+test('duplicates - single - same code on select triggers change',
   function (assert) {
   var $select = $('#qunit-fixture .duplicates');
 
@@ -195,7 +195,7 @@ test('duplicates - single - same id on select triggers change',
   );
 });
 
-test('duplicates - single - different id on select triggers change',
+test('duplicates - single - different code on select triggers change',
   function (assert) {
   var $select = $('#qunit-fixture .duplicates');
 
@@ -219,7 +219,7 @@ test('duplicates - single - different id on select triggers change',
   assert.equal(
     $select.val(),
     'one',
-    'The value changed to the duplicate id'
+    'The value changed to the duplicate code'
   );
 
   assert.ok(
@@ -233,7 +233,7 @@ test('duplicates - single - different id on select triggers change',
   );
 });
 
-test('duplicates - multiple - same id on select triggers change',
+test('duplicates - multiple - same code on select triggers change',
 function (assert) {
   var $select = $('#qunit-fixture .duplicates-multi');
 
@@ -271,7 +271,7 @@ function (assert) {
   );
 });
 
-test('duplicates - multiple - different id on select triggers change',
+test('duplicates - multiple - different code on select triggers change',
 function (assert) {
   var $select = $('#qunit-fixture .duplicates-multi');
 
@@ -295,7 +295,7 @@ function (assert) {
   assert.deepEqual(
     $select.val(),
     ['two', 'one'],
-    'The value has the new id'
+    'The value has the new code'
   );
 
   assert.ok(
@@ -432,7 +432,7 @@ test('multiple options with the same value are returned', function (assert) {
     assert.equal(
       first.id,
       duplicate.id,
-      'The duplicates should have the same id'
+      'The duplicates should have the same code'
     );
 
     assert.notEqual(

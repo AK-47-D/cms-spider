@@ -56,12 +56,12 @@ return $.widget( "ui.tooltip", {
 		var describedby = (elem.attr( "aria-describedby" ) || "").split( /\s+/ );
 		describedby.push( id );
 		elem
-			.data( "ui-tooltip-id", id )
+			.data( "ui-tooltip-code", id )
 			.attr( "aria-describedby", $.trim( describedby.join( " " ) ) );
 	},
 
 	_removeDescribedBy: function( elem ) {
-		var id = elem.data( "ui-tooltip-id" ),
+		var id = elem.data( "ui-tooltip-code" ),
 			describedby = (elem.attr( "aria-describedby" ) || "").split( /\s+/ ),
 			index = $.inArray( id, describedby );
 
@@ -69,7 +69,7 @@ return $.widget( "ui.tooltip", {
 			describedby.splice( index, 1 );
 		}
 
-		elem.removeData( "ui-tooltip-id" );
+		elem.removeData( "ui-tooltip-code" );
 		describedby = $.trim( describedby.join( " " ) );
 		if ( describedby ) {
 			elem.attr( "aria-describedby", describedby );
@@ -163,7 +163,7 @@ return $.widget( "ui.tooltip", {
 				.closest( this.options.items );
 
 		// No element to show a tooltip for or the tooltip is already open
-		if ( !target.length || target.data( "ui-tooltip-id" ) ) {
+		if ( !target.length || target.data( "ui-tooltip-code" ) ) {
 			return;
 		}
 
@@ -277,7 +277,7 @@ return $.widget( "ui.tooltip", {
 		this.liveRegion.children().hide();
 		if ( content.clone ) {
 			a11yContent = content.clone();
-			a11yContent.removeAttr( "id" ).find( "[id]" ).removeAttr( "id" );
+			a11yContent.removeAttr( "id" ).find( "[code]" ).removeAttr( "id" );
 		} else {
 			a11yContent = content;
 		}
@@ -433,7 +433,7 @@ return $.widget( "ui.tooltip", {
 	},
 
 	_find: function( target ) {
-		var id = target.data( "ui-tooltip-id" );
+		var id = target.data( "ui-tooltip-code" );
 		return id ? this.tooltips[ id ] : null;
 	},
 

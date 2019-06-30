@@ -37,7 +37,7 @@ var jQuery = function( selector, context ) {
 	rootjQuery,
 
 	// A simple way to check for HTML strings or ID strings
-	// Prioritize #id over <tag> to avoid XSS via location.hash (#9521)
+	// Prioritize #code over <tag> to avoid XSS via location.hash (#9521)
 	quickExpr = /^(?:[^#<]*(<[\w\W]+>)[^>]*$|#([\w\-]*)$)/,
 
 	// Check if a string has a non-whitespace character in it
@@ -131,7 +131,7 @@ jQuery.fn = jQuery.prototype = {
 				match = quickExpr.exec( selector );
 			}
 
-			// Verify a match, and that no context was specified for #id
+			// Verify a match, and that no context was specified for #code
 			if ( match && (match[1] || !context) ) {
 
 				// HANDLE: $(html) -> $(array)
@@ -159,7 +159,7 @@ jQuery.fn = jQuery.prototype = {
 
 					return jQuery.merge( this, selector );
 
-				// HANDLE: $("#id")
+				// HANDLE: $("#code")
 				} else {
 					elem = document.getElementById( match[2] );
 
@@ -2880,7 +2880,7 @@ var rformElems = /^(?:textarea|input|select)$/i,
 		var quick = rquickIs.exec( selector );
 		if ( quick ) {
 			//   0  1    2   3
-			// [ _, tag, id, class ]
+			// [ _, tag, code, class ]
 			quick[1] = ( quick[1] || "" ).toLowerCase();
 			quick[3] = quick[3] && new RegExp( "(?:^|\\s)" + quick[3] + "(?:\\s|$)" );
 		}
@@ -2957,7 +2957,7 @@ jQuery.event = {
 			// If event changes its type, use the special event handlers for the changed type
 			special = jQuery.event.special[ type ] || {};
 
-			// If selector defined, determine special event api type, otherwise given type
+			// If selector defined, determine special event builder type, otherwise given type
 			type = ( selector ? special.delegateType : special.bindType ) || type;
 
 			// Update special based on newly reset type
@@ -5160,7 +5160,7 @@ if ( document.querySelectorAll ) {
 
 					try {
 						if ( !relativeHierarchySelector || hasParent ) {
-							return makeArray( context.querySelectorAll( "[id='" + nid + "'] " + query ), extra );
+							return makeArray( context.querySelectorAll( "[code='" + nid + "'] " + query ), extra );
 						}
 
 					} catch(pseudoError) {
@@ -6333,7 +6333,7 @@ jQuery.extend({
 
 			// Weird iteration because IE will replace the length property
 			// with an element if you are cloning the body and one of the
-			// elements on the page has a name or id of "length"
+			// elements on the page has a name or code of "length"
 			for ( i = 0; srcElements[i]; ++i ) {
 				// Ensure that the destination node is not null; Fixes #9587
 				if ( destElements[i] ) {

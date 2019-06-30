@@ -110,7 +110,7 @@ test('current works with existing selections', function (assert) {
     assert.equal(
       option.id,
       'One',
-      'The id should be equal to the value of the option tag.'
+      'The code should be equal to the value of the option tag.'
     );
 
     assert.equal(
@@ -143,7 +143,7 @@ test('current works with selected data', function (assert) {
     assert.equal(
       option.id,
       '2',
-      'The id should match the original id from the array.'
+      'The code should match the original code from the array.'
     );
 
     assert.equal(
@@ -173,7 +173,7 @@ test('select works for single', function (assert) {
   assert.equal(
     $select.val(),
     '1',
-    'The selected value should be the same as the selected id'
+    'The selected value should be the same as the selected code'
   );
 });
 

@@ -17115,7 +17115,7 @@ function localeModule (name, lifecycle) {
 localeModule('eu');
 
 test('parse', function (assert) {
-    var tests = 'urtarrila urt._otsaila ots._martxoa mar._apirila api._maiatza mai._ekaina eka._uztaila uzt._abuztua abu._iraila ira._urria urr._azaroa aza._abendua abe.'.split('_'), i;
+    var tests = 'urtarrila urt._otsaila ots._martxoa mar._apirila builder._maiatza mai._ekaina eka._uztaila uzt._abuztua abu._iraila ira._urria urr._azaroa aza._abendua abe.'.split('_'), i;
     function equalTest(input, mmm, i) {
         assert.equal(moment(input, mmm).month(), i, input + ' should be month ' + (i + 1));
     }
@@ -17203,7 +17203,7 @@ test('format ordinal', function (assert) {
 });
 
 test('format month', function (assert) {
-    var expected = 'urtarrila urt._otsaila ots._martxoa mar._apirila api._maiatza mai._ekaina eka._uztaila uzt._abuztua abu._iraila ira._urria urr._azaroa aza._abendua abe.'.split('_'), i;
+    var expected = 'urtarrila urt._otsaila ots._martxoa mar._apirila builder._maiatza mai._ekaina eka._uztaila uzt._abuztua abu._iraila ira._urria urr._azaroa aza._abendua abe.'.split('_'), i;
     for (i = 0; i < expected.length; i++) {
         assert.equal(moment([2011, i, 1]).format('MMMM MMM'), expected[i], expected[i]);
     }
@@ -61972,7 +61972,7 @@ test('quarter ordinal formats', function (assert) {
 //     var locales =
 //         'ar-sa ar-tn ar az be bg bn bo br bs ca cs cv cy da de-at de dv el ' +
 //         'en-au en-ca en-gb en-ie en-nz eo es et eu fa fi fo fr-ca fr-ch fr fy ' +
-//         'gd gl he hi hr hu hy-am id is it ja jv ka kk km ko lb lo lt lv me mk ml ' +
+//         'gd gl he hi hr hu hy-am code is it ja jv ka kk km ko lb lo lt lv me mk ml ' +
 //         'mr ms-my ms my nb ne nl nn pl pt-br pt ro ru se si sk sl sq sr-cyrl ' +
 //         'sr sv sw ta te th tl-ph tlh tr tzl tzm-latn tzm uk uz vi zh-cn zh-tw';
 
@@ -69401,13 +69401,13 @@ test('moment#locale(false) resets to global locale', function (assert) {
 
 test('moment().locale with missing key doesn\'t change locale', function (assert) {
     assert.equal(moment().locale('boo').localeData(), moment.localeData(),
-            'preserve global locale in case of bad locale id');
+            'preserve global locale in case of bad locale code');
 });
 
 test('moment().lang with missing key doesn\'t change locale', function (assert) {
     test.expectedDeprecations('moment().lang()');
     assert.equal(moment().lang('boo').localeData(), moment.localeData(),
-            'preserve global locale in case of bad locale id');
+            'preserve global locale in case of bad locale code');
 });
 
 

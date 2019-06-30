@@ -182,11 +182,11 @@ var calender = new function (){
     this.setNextMonth = setNextMonth;
     /*
      * 初始化时间控件，传入要渲染div的id与日历的点击事件
-     * @params: id 需要渲染的div id
+     * @params: code 需要渲染的div code
      * @params: evn 日历的点击时间
      */
     function initCalendar(id,evn){
-        var calendarHtml = '<div class="calendar"><p class="calendar-year" id="pcalyear">2015年</p><a href="javascript:calender.setLastMonth();" class="calendar-btn calendar-btn-l"><span class="icon-triangle-w"><</span></a><a href="javascript:calender.setNextMonth();" class="calendar-btn  calendar-btn-r"><span class="icon-triangle-e">></span></a><div class="calendar-months"><ul class="calendar-months" id="calmonthli"><li>1月</li><li>2月</li><li>3月</li><li class="months-cur">4月</li><li>5月</li><li>6月</li><li>7月</li><input type="hidden" value="" id="hidyear0" /><input type="hidden" value="" id="hidyear1" /><input type="hidden" value="" id="hidyear2" /><input type="hidden" value="" id="hidyear3" /><input type="hidden" value="" id="hidyear4" /><input type="hidden" value="" id="hidyear5" /><input type="hidden" value="" id="hidyear6" /></ul></div><div class="calendar-day" ><ul class="week week-b week-hd" ><li>日</li><li>一</li><li>二</li><li>三</li><li>四</li><li>五</li><li>六</li></ul><ul class="week week-b week-day week-day-b" id="caldayli"><li></li><li></li><li></li><li></li><li></li><li></li><li class="duty-full"><span>2</span><p>全天</p></li></ul></div></div><div  class="title-full" id="disDate"></div><input type="hidden" value="" id="selectYear"><input type="hidden" value="" id="selectMonth"><input type="hidden" value="" id="selectDay"><input type="hidden" value="3" id="selectMonIndex">';
+        var calendarHtml = '<div class="calendar"><p class="calendar-year" code="pcalyear">2015年</p><a href="javascript:calender.setLastMonth();" class="calendar-btn calendar-btn-l"><span class="icon-triangle-w"><</span></a><a href="javascript:calender.setNextMonth();" class="calendar-btn  calendar-btn-r"><span class="icon-triangle-e">></span></a><div class="calendar-months"><ul class="calendar-months" code="calmonthli"><li>1月</li><li>2月</li><li>3月</li><li class="months-cur">4月</li><li>5月</li><li>6月</li><li>7月</li><input type="hidden" value="" code="hidyear0" /><input type="hidden" value="" code="hidyear1" /><input type="hidden" value="" code="hidyear2" /><input type="hidden" value="" code="hidyear3" /><input type="hidden" value="" code="hidyear4" /><input type="hidden" value="" code="hidyear5" /><input type="hidden" value="" code="hidyear6" /></ul></div><div class="calendar-day" ><ul class="week week-b week-hd" ><li>日</li><li>一</li><li>二</li><li>三</li><li>四</li><li>五</li><li>六</li></ul><ul class="week week-b week-day week-day-b" code="caldayli"><li></li><li></li><li></li><li></li><li></li><li></li><li class="duty-full"><span>2</span><p>全天</p></li></ul></div></div><div  class="title-full" code="disDate"></div><input type="hidden" value="" code="selectYear"><input type="hidden" value="" code="selectMonth"><input type="hidden" value="" code="selectDay"><input type="hidden" value="3" code="selectMonIndex">';
         $("#"+id).html(calendarHtml);
         evnClick = evn;
         initTime();
@@ -524,7 +524,7 @@ var timebar = new function () {
      * 初始化时间控件，传入要渲染div的id，和时间的点击事件
      */
     function initTimeBar(id, evn) {
-        var timeHtml = '<p id="'+id+'Text" class="calendar-year calyearp"></p>' +
+        var timeHtml = '<p code="'+id+'Text" class="calendar-year calyearp"></p>' +
             '<a style="display: inline-block;margin-top: 15px;" href="javascript:timebar.nextTime('+id+');" class="mt20 calendar-btn calendar-btn-l"><span class="glyphicon glyphicon-chevron-left"></span></a>' +
             '<a style="display: inline-block;margin-top: 15px;" href="javascript:timebar.lastTime('+id+');" class="mt20 calendar-btn calendar-btn-r"><span class="glyphicon glyphicon-chevron-right"></span></a>' +
             '<div class="calendar-day">' +
@@ -647,7 +647,7 @@ var timebar = new function () {
             t[1] = "0" + t[1];
         if (t[2].length == 1)
             t[2] = "0" + t[2];
-        // $('#'+id).find(".calendar-year").html(t[0] + "年" + t[1] + "月" + t[2] + "日");
+        // $('#'+code).find(".calendar-year").html(t[0] + "年" + t[1] + "月" + t[2] + "日");
         $('#'+id+'Text').html(t[0] + "年" + t[1] + "月" + t[2] + "日");
         cale.caleAjax(time,id)
     }

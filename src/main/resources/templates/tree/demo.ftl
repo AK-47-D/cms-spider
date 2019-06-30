@@ -7,24 +7,24 @@
     }
 
     .overlay{
-        background-color:#EEE;
+        background-color:#fff;
     }
 
     .node circle {
         fill: #fff;
         stroke: steelblue;
-        stroke-width: 1.5px;
+        stroke-width: 2px;
     }
 
     .node text {
-        font-size:10px;
+        font-size:16px;
         font-family:sans-serif;
     }
 
     .link {
         fill: none;
         stroke: #ccc;
-        stroke-width: 1.5px;
+        stroke-width: 1px;
     }
 
     .templink {

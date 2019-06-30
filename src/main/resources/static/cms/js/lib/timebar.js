@@ -18,7 +18,7 @@ var timebar = new function () {
      * 初始化时间控件，传入要渲染div的id，和时间的点击事件
      */
     function initTimeBar(id, evn) {
-        var timeHtml = '<p id="'+id+'Text" class="calendar-year calyearp"></p>' +
+        var timeHtml = '<p code="'+id+'Text" class="calendar-year calyearp"></p>' +
             '<a style="display: inline-block;margin-top: 15px;" href="javascript:timebar.nextTime('+id+');" class="mt20 calendar-btn calendar-btn-l"><span class="glyphicon glyphicon-chevron-left"></span></a>' +
             '<a style="display: inline-block;margin-top: 15px;" href="javascript:timebar.lastTime('+id+');" class="mt20 calendar-btn calendar-btn-r"><span class="glyphicon glyphicon-chevron-right"></span></a>' +
             '<div class="calendar-day">' +
@@ -141,7 +141,7 @@ var timebar = new function () {
             t[1] = "0" + t[1];
         if (t[2].length == 1)
             t[2] = "0" + t[2];
-        // $('#'+id).find(".calendar-year").html(t[0] + "年" + t[1] + "月" + t[2] + "日");
+        // $('#'+code).find(".calendar-year").html(t[0] + "年" + t[1] + "月" + t[2] + "日");
         $('#'+id+'Text').html(t[0] + "年" + t[1] + "月" + t[2] + "日");
         cale.caleAjax(time,id)
     }

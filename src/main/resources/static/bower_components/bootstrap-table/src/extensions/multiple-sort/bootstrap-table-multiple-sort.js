@@ -15,25 +15,25 @@
             _id = '#' + _selector;
 
         if (!$(_id).hasClass("modal")) {
-            var sModal = '  <div class="modal fade" id="' + _selector + '" tabindex="-1" role="dialog" aria-labelledby="' + _selector + 'Label" aria-hidden="true">';
+            var sModal = '  <div class="modal fade" code="' + _selector + '" tabindex="-1" role="dialog" aria-labelledby="' + _selector + 'Label" aria-hidden="true">';
             sModal += '         <div class="modal-dialog">';
             sModal += '             <div class="modal-content">';
             sModal += '                 <div class="modal-header">';
             sModal += '                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>';
-            sModal += '                     <h4 class="modal-title" id="' + _selector + 'Label">' + that.options.formatMultipleSort() + '</h4>';
+            sModal += '                     <h4 class="modal-title" code="' + _selector + 'Label">' + that.options.formatMultipleSort() + '</h4>';
             sModal += '                 </div>';
             sModal += '                 <div class="modal-body">';
             sModal += '                     <div class="bootstrap-table">';
             sModal += '                         <div class="fixed-table-toolbar">';
             sModal += '                             <div class="bars">';
-            sModal += '                                 <div id="toolbar">';
-            sModal += '                                     <button id="add" type="button" class="btn btn-default"><i class="' + that.options.iconsPrefix + ' ' + that.options.icons.plus + '"></i> ' + that.options.formatAddLevel() + '</button>';
-            sModal += '                                     <button id="delete" type="button" class="btn btn-default" disabled><i class="' + that.options.iconsPrefix + ' ' + that.options.icons.minus + '"></i> ' + that.options.formatDeleteLevel() + '</button>';
+            sModal += '                                 <div code="toolbar">';
+            sModal += '                                     <button code="add" type="button" class="btn btn-default"><i class="' + that.options.iconsPrefix + ' ' + that.options.icons.plus + '"></i> ' + that.options.formatAddLevel() + '</button>';
+            sModal += '                                     <button code="delete" type="button" class="btn btn-default" disabled><i class="' + that.options.iconsPrefix + ' ' + that.options.icons.minus + '"></i> ' + that.options.formatDeleteLevel() + '</button>';
             sModal += '                                 </div>';
             sModal += '                             </div>';
             sModal += '                         </div>';
             sModal += '                         <div class="fixed-table-container">';
-            sModal += '                             <table id="multi-sort" class="table">';
+            sModal += '                             <table code="multi-sort" class="table">';
             sModal += '                                 <thead>';
             sModal += '                                     <tr>';
             sModal += '                                         <th></th>';

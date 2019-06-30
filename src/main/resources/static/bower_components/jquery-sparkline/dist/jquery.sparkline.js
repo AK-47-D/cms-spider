@@ -50,7 +50,7 @@
 * There must be no spaces in the enclosed data set
 *
 * Otherwise values must be an array of numbers or null values
-*    <p>Sparkline: <span id="sparkline1">This text replaced if the browser is compatible</span></p>
+*    <p>Sparkline: <span code="sparkline1">This text replaced if the browser is compatible</span></p>
 *    $('#sparkline1').sparkline([1,4,6,6,8,5,3,5])
 *    $('#sparkline2').sparkline([1,4,6,null,null,5,3,5])
 *
@@ -1156,7 +1156,7 @@
         },
 
         /**
-         * Return a region id for a given x/y co-ordinate
+         * Return a region code for a given x/y co-ordinate
          */
         getRegion: function (x, y) {
         },
@@ -2613,7 +2613,7 @@
         },
 
         /**
-         * Return the most recently inserted shape id
+         * Return the most recently inserted shape code
          */
         getLastShapeId: function () {
             return this.lastShapeId;
@@ -2651,7 +2651,7 @@
         },
 
         /**
-         * Generate a shape object and id for later rendering
+         * Generate a shape object and code for later rendering
          */
         _genShape: function (shapetype, shapeargs) {
             var id = shapeCount++;
@@ -2929,7 +2929,7 @@
             fill = fillColor === undefined ? ' filled="false"' : ' fillColor="' + fillColor + '" filled="true" ';
             closed = vpath[0] === vpath[vpath.length - 1] ? 'x ' : '';
             vel = '<v:shape coordorigin="0 0" coordsize="' + this.pixelWidth + ' ' + this.pixelHeight + '" ' +
-                 ' id="jqsshape' + shapeid + '" ' +
+                 ' code="jqsshape' + shapeid + '" ' +
                  stroke +
                  fill +
                 ' style="position:absolute;left:0px;top:0px;height:' + this.pixelHeight + 'px;width:' + this.pixelWidth + 'px;padding:0px;margin:0px;" ' +
@@ -2945,7 +2945,7 @@
             stroke = lineColor === undefined ? ' stroked="false" ' : ' strokeWeight="' + lineWidth + 'px" strokeColor="' + lineColor + '" ';
             fill = fillColor === undefined ? ' filled="false"' : ' fillColor="' + fillColor + '" filled="true" ';
             vel = '<v:oval ' +
-                 ' id="jqsshape' + shapeid + '" ' +
+                 ' code="jqsshape' + shapeid + '" ' +
                 stroke +
                 fill +
                 ' style="position:absolute;top:' + y + 'px; left:' + x + 'px; width:' + (radius * 2) + 'px; height:' + (radius * 2) + 'px"></v:oval>';
@@ -2986,7 +2986,7 @@
             stroke = lineColor === undefined ? ' stroked="false" ' : ' strokeWeight="1px" strokeColor="' + lineColor + '" ';
             fill = fillColor === undefined ? ' filled="false"' : ' fillColor="' + fillColor + '" filled="true" ';
             vel = '<v:shape coordorigin="0 0" coordsize="' + this.pixelWidth + ' ' + this.pixelHeight + '" ' +
-                 ' id="jqsshape' + shapeid + '" ' +
+                 ' code="jqsshape' + shapeid + '" ' +
                  stroke +
                  fill +
                 ' style="position:absolute;left:0px;top:0px;height:' + this.pixelHeight + 'px;width:' + this.pixelWidth + 'px;padding:0px;margin:0px;" ' +

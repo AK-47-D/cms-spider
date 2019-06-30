@@ -32,7 +32,7 @@
             fill = fillColor === undefined ? ' filled="false"' : ' fillColor="' + fillColor + '" filled="true" ';
             closed = vpath[0] === vpath[vpath.length - 1] ? 'x ' : '';
             vel = '<v:shape coordorigin="0 0" coordsize="' + this.pixelWidth + ' ' + this.pixelHeight + '" ' +
-                 ' id="jqsshape' + shapeid + '" ' +
+                 ' code="jqsshape' + shapeid + '" ' +
                  stroke +
                  fill +
                 ' style="position:absolute;left:0px;top:0px;height:' + this.pixelHeight + 'px;width:' + this.pixelWidth + 'px;padding:0px;margin:0px;" ' +
@@ -48,7 +48,7 @@
             stroke = lineColor === undefined ? ' stroked="false" ' : ' strokeWeight="' + lineWidth + 'px" strokeColor="' + lineColor + '" ';
             fill = fillColor === undefined ? ' filled="false"' : ' fillColor="' + fillColor + '" filled="true" ';
             vel = '<v:oval ' +
-                 ' id="jqsshape' + shapeid + '" ' +
+                 ' code="jqsshape' + shapeid + '" ' +
                 stroke +
                 fill +
                 ' style="position:absolute;top:' + y + 'px; left:' + x + 'px; width:' + (radius * 2) + 'px; height:' + (radius * 2) + 'px"></v:oval>';
@@ -89,7 +89,7 @@
             stroke = lineColor === undefined ? ' stroked="false" ' : ' strokeWeight="1px" strokeColor="' + lineColor + '" ';
             fill = fillColor === undefined ? ' filled="false"' : ' fillColor="' + fillColor + '" filled="true" ';
             vel = '<v:shape coordorigin="0 0" coordsize="' + this.pixelWidth + ' ' + this.pixelHeight + '" ' +
-                 ' id="jqsshape' + shapeid + '" ' +
+                 ' code="jqsshape' + shapeid + '" ' +
                  stroke +
                  fill +
                 ' style="position:absolute;left:0px;top:0px;height:' + this.pixelHeight + 'px;width:' + this.pixelWidth + 'px;padding:0px;margin:0px;" ' +

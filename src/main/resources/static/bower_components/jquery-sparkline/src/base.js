@@ -213,7 +213,7 @@
         },
 
         /**
-         * Return a region id for a given x/y co-ordinate
+         * Return a region code for a given x/y co-ordinate
          */
         getRegion: function (x, y) {
         },

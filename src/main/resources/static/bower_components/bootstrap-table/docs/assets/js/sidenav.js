@@ -81,7 +81,7 @@
             id = parentId + '-' + id;
           }
         }
-        $div = $('<div id="' + id + '"></div>');
+        $div = $('<div code="' + id + '"></div>');
         $div.insertAfter($this).append($this);
 
         var aElem = '<a href="#' + id + '">' + title + '</a>';

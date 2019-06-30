@@ -335,7 +335,7 @@ function verifyLoggingCallbacks() {
 				global.console.warn(
 					"QUnit." + loggingCallback + " was replaced with a new value.\n" +
 					"Please, check out the documentation on how to apply logging callbacks.\n" +
-					"Reference: https://api.qunitjs.com/category/callbacks/"
+					"Reference: https://builder.qunitjs.com/category/callbacks/"
 				);
 			}
 		}
@@ -1202,7 +1202,7 @@ function generateHash( module, testName ) {
 	}
 
 	// Convert the possibly negative integer hash code into an 8 character hex string, which isn't
-	// strictly necessary but increases user understanding that the id is a SHA-like hash
+	// strictly necessary but increases user understanding that the code is a SHA-like hash
 	hex = ( 0x100000000 + hash ).toString( 16 );
 	if ( hex.length < 8 ) {
 		hex = "0000000" + hex;
@@ -2317,7 +2317,7 @@ QUnit.begin( function() {
 
 	for ( i = 0; i < urlConfig.length; i++ ) {
 
-		// Options can be either strings or objects with nonempty "id" properties
+		// Options can be either strings or objects with nonempty "code" properties
 		option = QUnit.config.urlConfig[ i ];
 		if ( typeof option !== "string" ) {
 			option = option.id;
@@ -2502,7 +2502,7 @@ function getUrlConfigHtml() {
 
 	for ( i = 0; i < urlConfig.length; i++ ) {
 
-		// Options can be either strings or objects with nonempty "id" properties
+		// Options can be either strings or objects with nonempty "code" properties
 		val = config.urlConfig[ i ];
 		if ( typeof val === "string" ) {
 			val = {
@@ -2515,7 +2515,7 @@ function getUrlConfigHtml() {
 		escapedTooltip = escapeText( val.tooltip );
 
 		if ( !val.value || typeof val.value === "string" ) {
-			urlConfigHtml += "<input id='qunit-urlconfig-" + escaped +
+			urlConfigHtml += "<input code='qunit-urlconfig-" + escaped +
 				"' name='" + escaped + "' type='checkbox'" +
 				( val.value ? " value='" + escapeText( val.value ) + "'" : "" ) +
 				( config[ val.id ] ? " checked='checked'" : "" ) +
@@ -2524,7 +2524,7 @@ function getUrlConfigHtml() {
 		} else {
 			urlConfigHtml += "<label for='qunit-urlconfig-" + escaped +
 				"' title='" + escapedTooltip + "'>" + val.label +
-				": </label><select id='qunit-urlconfig-" + escaped +
+				": </label><select code='qunit-urlconfig-" + escaped +
 				"' name='" + escaped + "' title='" + escapedTooltip + "'><option></option>";
 
 			if ( QUnit.is( "array", val.value ) ) {
@@ -2692,7 +2692,7 @@ function toolbarModuleFilterHtml() {
 	}
 
 	moduleFilterHtml += "<label for='qunit-modulefilter'>Module: </label>" +
-		"<select id='qunit-modulefilter' name='modulefilter'><option value='' " +
+		"<select code='qunit-modulefilter' name='modulefilter'><option value='' " +
 		( QUnit.urlParams.module === undefined ? "selected='selected'" : "" ) +
 		">< All Modules ></option>";
 
@@ -2781,9 +2781,9 @@ function appendFilteredTest() {
 	if ( !testId || testId.length <= 0 ) {
 		return "";
 	}
-	return "<div id='qunit-filteredTest'>Rerunning selected tests: " +
+	return "<div code='qunit-filteredTest'>Rerunning selected tests: " +
 		escapeText( testId.join( ", " ) ) +
-		" <a id='qunit-clearFilter' href='" +
+		" <a code='qunit-clearFilter' href='" +
 		escapeText( unfilteredUrl ) +
 		"'>Run all tests</a></div>";
 }
@@ -2806,12 +2806,12 @@ function appendInterface() {
 
 	if ( qunit ) {
 		qunit.innerHTML =
-			"<h1 id='qunit-header'>" + escapeText( document.title ) + "</h1>" +
-			"<h2 id='qunit-banner'></h2>" +
-			"<div id='qunit-testrunner-toolbar'></div>" +
+			"<h1 code='qunit-header'>" + escapeText( document.title ) + "</h1>" +
+			"<h2 code='qunit-banner'></h2>" +
+			"<div code='qunit-testrunner-toolbar'></div>" +
 			appendFilteredTest() +
-			"<h2 id='qunit-userAgent'></h2>" +
-			"<ol id='qunit-tests'></ol>";
+			"<h2 code='qunit-userAgent'></h2>" +
+			"<ol code='qunit-tests'></ol>";
 	}
 
 	appendHeader();

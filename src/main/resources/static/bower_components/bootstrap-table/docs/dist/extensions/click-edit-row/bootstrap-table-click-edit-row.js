@@ -77,7 +77,7 @@
                         tarNode.find('td').eq(column.fieldIndex).text('').append(div);
                         break;
                     case 'select':
-                        var select=$('<select id="'+column.field+'">'), options = $.selectArray[column.field];
+                        var select=$('<select code="'+column.field+'">'), options = $.selectArray[column.field];
                         tarNode.find('td').eq(column.fieldIndex).text('').append(select);
                         setDivision($('#'+column.field), options);
                         break;
@@ -91,7 +91,7 @@
             for(var i=0, l=txt.length; i<l; i++){
                 tarNode.find('input[type="text"]').eq(i).val(txt[i]);
             }
-            tarNode.find('td').last().append('<div id="tooling" class="editable-buttons"/>');
+            tarNode.find('td').last().append('<div code="tooling" class="editable-buttons"/>');
             $('.clear').on('click', function(){ $(this).parent().find('input').val('');});
             $(submit).on('click', replaceData).appendTo('#tooling');
             $(cancel).on('click', recoveryData).appendTo('#tooling');

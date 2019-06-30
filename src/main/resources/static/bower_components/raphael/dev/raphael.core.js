@@ -3177,9 +3177,9 @@ define(["eve"], function(eve) {
      - mcontext (object) #optional context for moving handler
      - scontext (object) #optional context for drag start handler
      - econtext (object) #optional context for drag end handler
-     * Additionally following `drag` events will be triggered: `drag.start.<id>` on start,
-     * `drag.end.<id>` on end and `drag.move.<id>` on every move. When element will be dragged over another element
-     * `drag.over.<id>` will be fired as well.
+     * Additionally following `drag` events will be triggered: `drag.start.<code>` on start,
+     * `drag.end.<code>` on end and `drag.move.<code>` on every move. When element will be dragged over another element
+     * `drag.over.<code>` will be fired as well.
      *
      * Start event and start handler will be called in specified context or in context of the element with following parameters:
      o x (number) x position of the mouse
@@ -3233,7 +3233,7 @@ define(["eve"], function(eve) {
      * Element.onDragOver
      [ method ]
      **
-     * Shortcut for assigning event handler for `drag.over.<id>` event, where id is id of the element (see @Element.id).
+     * Shortcut for assigning event handler for `drag.over.<code>` event, where code is code of the element (see @Element.code).
      > Parameters
      - f (function) handler for event, first argument would be the element you are dragging over
     \*/
@@ -3611,7 +3611,7 @@ define(["eve"], function(eve) {
      **
      > Parameters
      **
-     - id (number) id
+     - code (number) code
      = (object) Raphaël element object
     \*/
     paperproto.getById = function (id) {
@@ -4672,7 +4672,7 @@ define(["eve"], function(eve) {
      = (object) original element if `value` is specified
      * Note, that during animation following events are triggered:
      *
-     * On each animation frame event `anim.frame.<id>`, on start `anim.start.<id>` and on end `anim.finish.<id>`.
+     * On each animation frame event `anim.frame.<code>`, on start `anim.start.<code>` and on end `anim.finish.<code>`.
     \*/
     elproto.setTime = function (anim, value) {
         if (anim && value != null) {

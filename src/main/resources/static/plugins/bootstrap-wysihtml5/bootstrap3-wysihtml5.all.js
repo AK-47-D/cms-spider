@@ -838,7 +838,7 @@ var wysihtml5 = {
                 return '"' + node.data + '"';
             }
             if (node.nodeType == 1) {
-                var idAttr = node.id ? ' id="' + node.id + '"' : "";
+                var idAttr = node.id ? ' code="' + node.id + '"' : "";
                 return "<" + node.nodeName + idAttr + ">[index:" + getNodeIndex(node) + ",length:" + node.childNodes.length + "][" + (node.innerHTML || "[innerHTML not supported]").slice(0, 25) + "]";
             }
             return node.nodeName;
@@ -2448,10 +2448,10 @@ var wysihtml5 = {
             This is a workaround for a bug where IE returns the wrong container element from the TextRange's parentElement()
             method. For example, in the following (where pipes denote the selection boundaries):
 
-            <ul id="ul"><li id="a">| a </li><li id="b"> b |</li></ul>
+            <ul code="ul"><li code="a">| a </li><li code="b"> b |</li></ul>
 
             var range = document.selection.createRange();
-            alert(range.parentElement().id); // Should alert "ul" but alerts "b"
+            alert(range.parentElement().code); // Should alert "ul" but alerts "b"
 
             This method returns the common ancestor node of the following:
             - the parentElement() of the textRange
@@ -4490,7 +4490,7 @@ wysihtml5.browser = (function() {
     },
 
     /**
-     * Whether the browser supports the speech api on the given element
+     * Whether the browser supports the speech builder on the given element
      * See http://mikepultz.com/2011/03/accessing-google-speech-api-chrome-11/
      *
      * @example
@@ -4891,7 +4891,7 @@ wysihtml5.browser = (function() {
  * @param {Element} element Container element in which to search for urls
  *
  * @example
- *    <div id="text-container">Please click here: www.google.com</div>
+ *    <div code="text-container">Please click here: www.google.com</div>
  *    <script>wysihtml5.dom.autoLink(document.getElementById("text-container"));</script>
  */
 (function(wysihtml5) {
@@ -5091,7 +5091,7 @@ wysihtml5.browser = (function() {
  *
  * @example
  *    <!-- Assume the following dom: -->
- *    <span id="pseudo-list">
+ *    <span code="pseudo-list">
  *      eminem<br>
  *      dr. dre
  *      <div>50 Cent</div>
@@ -5820,7 +5820,7 @@ wysihtml5.dom.observe = function(element, eventNames, handler) {
  * @return {Element|String} Depends on the elementOrHtml parameter. When html then the sanitized html as string elsewise the element.
  *
  * @example
- *    var userHTML = '<div id="foo" onclick="alert(1);"><p><font color="red">foo</font><script>alert(1);</script></p></div>';
+ *    var userHTML = '<div code="foo" onclick="alert(1);"><p><font color="red">foo</font><script>alert(1);</script></p></div>';
  *    wysihtml5.dom.parse(userHTML, {
  *      tags {
  *        p:      "div",      // Rename p tags to div tags
@@ -6672,7 +6672,7 @@ wysihtml5.dom.removeEmptyTextNodes = function(node) {
  *
  * @example
  *    <!-- Assume the following dom: -->
- *    <ul id="list">
+ *    <ul code="list">
  *      <li>eminem</li>
  *      <li>dr. dre</li>
  *      <li>50 Cent</li>
@@ -6704,7 +6704,7 @@ wysihtml5.dom.renameElement = function(element, newNodeName) {
  *
  * @param {Object} node The node which to replace with it's child nodes
  * @example
- *    <div id="foo">
+ *    <div code="foo">
  *      <span>hello</span>
  *    </div>
  *    <script>
@@ -6736,7 +6736,7 @@ wysihtml5.dom.replaceWithChildNodes = function(node) {
  *
  * @example
  *    <!-- Assume the following dom: -->
- *    <ul id="list">
+ *    <ul code="list">
  *      <li>eminem</li>
  *      <li>dr. dre</li>
  *      <li>50 Cent</li>
@@ -11764,8 +11764,8 @@ wysihtml5.commands.formatCode = {
       MAX_HISTORY_ENTRIES = 25,
       DATA_ATTR_NODE      = "data-wysihtml5-selection-node",
       DATA_ATTR_OFFSET    = "data-wysihtml5-selection-offset",
-      UNDO_HTML           = '<span id="_wysihtml5-undo" class="_wysihtml5-temp">' + wysihtml5.INVISIBLE_SPACE + '</span>',
-      REDO_HTML           = '<span id="_wysihtml5-redo" class="_wysihtml5-temp">' + wysihtml5.INVISIBLE_SPACE + '</span>',
+      UNDO_HTML           = '<span code="_wysihtml5-undo" class="_wysihtml5-temp">' + wysihtml5.INVISIBLE_SPACE + '</span>',
+      REDO_HTML           = '<span code="_wysihtml5-redo" class="_wysihtml5-temp">' + wysihtml5.INVISIBLE_SPACE + '</span>',
       dom                 = wysihtml5.dom;
 
   function cleanTempElements(doc) {
@@ -13634,7 +13634,7 @@ wysihtml5.views.View = Base.extend(
  * Converts speech-to-text and inserts this into the editor
  * As of now (2011/03/25) this only is supported in Chrome >= 11
  *
- * Note that it sends the recorded audio to the google speech recognition api:
+ * Note that it sends the recorded audio to the google speech recognition builder:
  * http://stackoverflow.com/questions/4361826/does-chrome-have-buil-in-speech-recognition-for-input-type-text-x-webkit-speec
  *
  * Current HTML5 draft can be found here
@@ -13727,7 +13727,7 @@ wysihtml5.views.View = Base.extend(
  * @param {Element} container Reference to the toolbar container element
  *
  * @example
- *    <div id="toolbar">
+ *    <div code="toolbar">
  *      <a data-wysihtml5-command="createLink">insert link</a>
  *      <a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h1">insert h1</a>
  *    </div>
@@ -14770,7 +14770,7 @@ function program17(depth0,data) {
       }
     };
 
-    // these define our public api
+    // these define our public builder
     var methods = {
       resetDefaults: function() {
         $.fn.wysihtml5.defaultOptions = $.extend(true, {}, $.fn.wysihtml5.defaultOptionsCache);

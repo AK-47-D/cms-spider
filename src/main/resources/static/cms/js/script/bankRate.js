@@ -1,7 +1,7 @@
 
 $(document).ready(function () {
     $.ajax({
-        url:'/api/CenterBankRate',
+        url:'/builder/CenterBankRate',
         method:'GET',
         data:{
             date_stamp:new Date().Format('yyyy-MM-dd')

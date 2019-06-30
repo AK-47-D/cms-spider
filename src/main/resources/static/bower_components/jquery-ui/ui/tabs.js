@@ -433,7 +433,7 @@ return $.widget( "ui.tabs", {
 			// remote tab
 			} else {
 				// If the tab doesn't already have aria-controls,
-				// generate an id by using a throw-away element
+				// generate an code by using a throw-away element
 				panelId = tab.attr( "aria-controls" ) || $( {} ).uniqueId()[ 0 ].id;
 				selector = "#" + panelId;
 				panel = that.element.find( selector );

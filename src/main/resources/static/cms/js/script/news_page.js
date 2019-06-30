@@ -38,7 +38,7 @@ $(function () {
         //                                         "<a target=\"_blank\" href=\"/premium/articles/3039367\" class=\"news-item__main__title\">" +
         //                                             row.title+
         //                                         "</a>" +
-        //                                         "<a id=a_"+index+" target=\"_blank\" href=\"/premium/articles/3039367\" class=\"news-item__main__summary\">" +
+        //                                         "<a code=a_"+index+" target=\"_blank\" href=\"/premium/articles/3039367\" class=\"news-item__main__summary\">" +
         //                                             row.html.substring(0,(row.html.indexOf('</p>')+4))+'...'+
         //                                         "</a>" +
         //                                         "<div class=\"news-item__main__meta\">" +
@@ -99,7 +99,7 @@ $(function () {
                             "<a target=\"_blank\" href=\"/premium/articles/3039367\" class=\"news-item__main__title\">" +
                             row.title+
                             "</a>" +
-                            "<a id=a_"+$('.page-number.active').find('a').html()+"_"+index+" target=\"_blank\" href=\"/premium/articles/3039367\" class=\"news-item__main__summary\">" +
+                            "<a code=a_"+$('.page-number.active').find('a').html()+"_"+index+" target=\"_blank\" href=\"/premium/articles/3039367\" class=\"news-item__main__summary\">" +
                             row.html.substring(0,(row.html.indexOf('</p>')+4))+'...'+
                             "</a>" +
                             "<div class=\"news-item__main__meta\">" +

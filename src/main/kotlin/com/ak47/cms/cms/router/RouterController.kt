@@ -1,4 +1,4 @@
-package com.ak47.cms.cms.controller
+package com.ak47.cms.cms.router
 
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
@@ -39,4 +39,12 @@ class RouterController {
         model.addAttribute("requestURI", request.requestURI)
         return ModelAndView("jianshu_topic")
     }
+
+
+    @GetMapping("treeDemo")
+    fun treeDemo() = "/tree/demo"
+
+    @GetMapping("treeCountry")
+    fun treeCountry() = "/tree/country"
+
 }

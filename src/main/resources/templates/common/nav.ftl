@@ -13,9 +13,20 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li><a href="sotu_favorite_view">精选收藏</a></li>
-                        <li><a href="sotu_gank_view">干货福利</a></li>
                         <li><a href="sotu_huaban_view">花瓣美女</a></li>
                         <li><a href="sotu_view">图集</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        树 <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a target="_blank" href="treeCountry">国家</a></li>
+                        <li><a target="_blank" href="treeProgramLanguage">编程语言</a></li>
+                        <li><a target="_blank" href="treeSubject">学科</a></li>
+                        <li><a target="_blank" href="treeIndustry">行业</a></li>
                     </ul>
                 </li>
 

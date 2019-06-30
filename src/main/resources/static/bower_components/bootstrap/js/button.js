@@ -107,7 +107,7 @@
   // ===============
 
   $(document)
-    .on('click.bs.button.data-api', '[data-toggle^="button"]', function (e) {
+    .on('click.bs.button.data-builder', '[data-toggle^="button"]', function (e) {
       var $btn = $(e.target).closest('.btn')
       Plugin.call($btn, 'toggle')
       if (!($(e.target).is('input[type="radio"], input[type="checkbox"]'))) {
@@ -118,7 +118,7 @@
         else $btn.find('input:visible,button:visible').first().trigger('focus')
       }
     })
-    .on('focus.bs.button.data-api blur.bs.button.data-api', '[data-toggle^="button"]', function (e) {
+    .on('focus.bs.button.data-builder blur.bs.button.data-builder', '[data-toggle^="button"]', function (e) {
       $(e.target).closest('.btn').toggleClass('focus', /^focus(in)?$/.test(e.type))
     })
 

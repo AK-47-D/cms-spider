@@ -11,7 +11,7 @@ class SimpleTest {
 
     @Test
     fun test() {
-        val content = JsonResultProcessor.getUrlContent("http://gank.io/api/data/%E7%A6%8F%E5%88%A9/100/1")
+        val content = JsonResultProcessor.getUrlContent("http://gank.io/builder/data/%E7%A6%8F%E5%88%A9/100/1")
         println(content)
     }
 }

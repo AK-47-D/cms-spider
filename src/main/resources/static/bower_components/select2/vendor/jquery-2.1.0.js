@@ -808,7 +808,7 @@
                             } else {
                                 context.setAttribute( "id", nid );
                             }
-                            nid = "[id='" + nid + "'] ";
+                            nid = "[code='" + nid + "'] ";
 
                             i = groups.length;
                             while ( i-- ) {
@@ -2314,7 +2314,7 @@
                         // Add elements passing elementMatchers directly to results
                         // Keep `i` a string if there are no elements so `matchedCount` will be "00" below
                         // Support: IE<9, Safari
-                        // Tolerate NodeList properties (IE: "length"; Safari: <number>) matching elements by id
+                        // Tolerate NodeList properties (IE: "length"; Safari: <number>) matching elements by code
                         for ( ; i !== len && (elem = elems[i]) != null; i++ ) {
                             if ( byElement && elem ) {
                                 j = 0;
@@ -2675,7 +2675,7 @@
     var rootjQuery,
 
     // A simple way to check for HTML strings
-    // Prioritize #id over <tag> to avoid XSS via location.hash (#9521)
+    // Prioritize #code over <tag> to avoid XSS via location.hash (#9521)
     // Strict HTML recognition (#11290: must start with <)
         rquickExpr = /^(?:\s*(<[\w\W]+>)[^>]*|#([\w-]*))$/,
 
@@ -2697,7 +2697,7 @@
                     match = rquickExpr.exec( selector );
                 }
 
-                // Match html or make sure no context is specified for #id
+                // Match html or make sure no context is specified for #code
                 if ( match && (match[1] || !context) ) {
 
                     // HANDLE: $(html) -> $(array)
@@ -2728,7 +2728,7 @@
 
                         return this;
 
-                        // HANDLE: $(#id)
+                        // HANDLE: $(#code)
                     } else {
                         elem = document.getElementById( match[2] );
 
@@ -4074,7 +4074,7 @@
                 // If event changes its type, use the special event handlers for the changed type
                 special = jQuery.event.special[ type ] || {};
 
-                // If selector defined, determine special event api type, otherwise given type
+                // If selector defined, determine special event builder type, otherwise given type
                 type = ( selector ? special.delegateType : special.bindType ) || type;
 
                 // Update special based on newly reset type

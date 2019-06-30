@@ -548,11 +548,11 @@ extend(QUnit, {
 		var qunit = id( "qunit" );
 		if ( qunit ) {
 			qunit.innerHTML =
-				'<h1 id="qunit-header">' + escapeInnerText( document.title ) + '</h1>' +
-				'<h2 id="qunit-banner"></h2>' +
-				'<div id="qunit-testrunner-toolbar"></div>' +
-				'<h2 id="qunit-userAgent"></h2>' +
-				'<ol id="qunit-tests"></ol>';
+				'<h1 code="qunit-header">' + escapeInnerText( document.title ) + '</h1>' +
+				'<h2 code="qunit-banner"></h2>' +
+				'<div code="qunit-testrunner-toolbar"></div>' +
+				'<h2 code="qunit-userAgent"></h2>' +
+				'<ol code="qunit-tests"></ol>';
 		}
 
 		var tests = id( "qunit-tests" ),

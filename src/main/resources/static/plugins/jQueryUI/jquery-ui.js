@@ -75,7 +75,7 @@ $.fn.extend({
 		return function() {
 			return this.each(function() {
 				if ( !this.id ) {
-					this.id = "ui-id-" + ( ++uuid );
+					this.id = "ui-code-" + ( ++uuid );
 				}
 			});
 		};
@@ -3895,7 +3895,7 @@ function Datepicker() {
 	$.extend(this._defaults, this.regional[""]);
 	this.regional.en = $.extend( true, {}, this.regional[ "" ]);
 	this.regional[ "en-US" ] = $.extend( true, {}, this.regional.en );
-	this.dpDiv = datepicker_bindHover($("<div id='" + this._mainDivId + "' class='ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all'></div>"));
+	this.dpDiv = datepicker_bindHover($("<div code='" + this._mainDivId + "' class='ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all'></div>"));
 }
 
 $.extend(Datepicker.prototype, {
@@ -4083,7 +4083,7 @@ $.extend(Datepicker.prototype, {
 		if (!inst) {
 			this.uuid += 1;
 			id = "dp" + this.uuid;
-			this._dialogInput = $("<input type='text' id='" + id +
+			this._dialogInput = $("<input type='text' code='" + id +
 				"' style='position: absolute; top: -100px; width: 0px;'/>");
 			this._dialogInput.keydown(this._doKeyDown);
 			$("body").append(this._dialogInput);
@@ -15704,7 +15704,7 @@ var tabs = $.widget( "ui.tabs", {
 			// remote tab
 			} else {
 				// If the tab doesn't already have aria-controls,
-				// generate an id by using a throw-away element
+				// generate an code by using a throw-away element
 				panelId = tab.attr( "aria-controls" ) || $( {} ).uniqueId()[ 0 ].id;
 				selector = "#" + panelId;
 				panel = that.element.find( selector );
@@ -16198,12 +16198,12 @@ var tooltip = $.widget( "ui.tooltip", {
 		var describedby = (elem.attr( "aria-describedby" ) || "").split( /\s+/ );
 		describedby.push( id );
 		elem
-			.data( "ui-tooltip-id", id )
+			.data( "ui-tooltip-code", id )
 			.attr( "aria-describedby", $.trim( describedby.join( " " ) ) );
 	},
 
 	_removeDescribedBy: function( elem ) {
-		var id = elem.data( "ui-tooltip-id" ),
+		var id = elem.data( "ui-tooltip-code" ),
 			describedby = (elem.attr( "aria-describedby" ) || "").split( /\s+/ ),
 			index = $.inArray( id, describedby );
 
@@ -16211,7 +16211,7 @@ var tooltip = $.widget( "ui.tooltip", {
 			describedby.splice( index, 1 );
 		}
 
-		elem.removeData( "ui-tooltip-id" );
+		elem.removeData( "ui-tooltip-code" );
 		describedby = $.trim( describedby.join( " " ) );
 		if ( describedby ) {
 			elem.attr( "aria-describedby", describedby );
@@ -16305,7 +16305,7 @@ var tooltip = $.widget( "ui.tooltip", {
 				.closest( this.options.items );
 
 		// No element to show a tooltip for or the tooltip is already open
-		if ( !target.length || target.data( "ui-tooltip-id" ) ) {
+		if ( !target.length || target.data( "ui-tooltip-code" ) ) {
 			return;
 		}
 
@@ -16419,7 +16419,7 @@ var tooltip = $.widget( "ui.tooltip", {
 		this.liveRegion.children().hide();
 		if ( content.clone ) {
 			a11yContent = content.clone();
-			a11yContent.removeAttr( "id" ).find( "[id]" ).removeAttr( "id" );
+			a11yContent.removeAttr( "id" ).find( "[code]" ).removeAttr( "id" );
 		} else {
 			a11yContent = content;
 		}
@@ -16575,7 +16575,7 @@ var tooltip = $.widget( "ui.tooltip", {
 	},
 
 	_find: function( target ) {
-		var id = target.data( "ui-tooltip-id" );
+		var id = target.data( "ui-tooltip-code" );
 		return id ? this.tooltips[ id ] : null;
 	},
 

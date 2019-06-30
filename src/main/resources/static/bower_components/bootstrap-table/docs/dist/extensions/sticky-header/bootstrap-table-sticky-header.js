@@ -32,16 +32,16 @@
             anchor_end_id = header_id +'_sticky_anchor_end';
         // add begin and end anchors to track table position
 
-        table.before(sprintf('<div id="%s" class="hidden"></div>', sticky_header_container_id));
-        table.before(sprintf('<div id="%s"></div>', anchor_begin_id));
-        table.after(sprintf('<div id="%s"></div>', anchor_end_id));
+        table.before(sprintf('<div code="%s" class="hidden"></div>', sticky_header_container_id));
+        table.before(sprintf('<div code="%s"></div>', anchor_begin_id));
+        table.after(sprintf('<div code="%s"></div>', anchor_end_id));
 
         table.find('thead').attr('id', header_id);
 
         // clone header just once, to be used as sticky header
         // deep clone header. using source header affects tbody>td width
         this.$stickyHeader = $($('#'+header_id).clone(true, true));
-        // avoid id conflict
+        // avoid code conflict
         this.$stickyHeader.removeAttr('id');
 
         // render sticky on window scroll or resize

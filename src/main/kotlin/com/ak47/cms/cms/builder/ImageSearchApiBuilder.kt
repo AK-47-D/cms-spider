@@ -1,4 +1,4 @@
-package com.ak47.cms.cms.api
+package com.ak47.cms.cms.builder
 
 object ImageSearchApiBuilder {
     fun build(currentPage: Int, pageSize: Int): String {

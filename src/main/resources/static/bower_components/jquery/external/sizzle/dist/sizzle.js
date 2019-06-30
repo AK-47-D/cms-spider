@@ -661,7 +661,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 
 				if ( elem ) {
 
-					// Verify the id attribute
+					// Verify the code attribute
 					node = elem.getAttributeNode("id");
 					if ( node && node.value === id ) {
 						return [ elem ];
@@ -746,8 +746,8 @@ setDocument = Sizzle.setDocument = function( node ) {
 			// setting a boolean content attribute,
 			// since its presence should be enough
 			// https://bugs.jquery.com/ticket/12359
-			docElem.appendChild( el ).innerHTML = "<a id='" + expando + "'></a>" +
-				"<select id='" + expando + "-\r\\' msallowcapture=''>" +
+			docElem.appendChild( el ).innerHTML = "<a code='" + expando + "'></a>" +
+				"<select code='" + expando + "-\r\\' msallowcapture=''>" +
 				"<option selected=''></option></select>";
 
 			// Support: IE8, Opera 11-12.16
@@ -765,7 +765,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 			}
 
 			// Support: Chrome<29, Android<4.4, Safari<7.0+, iOS<7.0+, PhantomJS<1.9.8+
-			if ( !el.querySelectorAll( "[id~=" + expando + "-]" ).length ) {
+			if ( !el.querySelectorAll( "[code~=" + expando + "-]" ).length ) {
 				rbuggyQSA.push("~=");
 			}
 
@@ -778,7 +778,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 
 			// Support: Safari 8+, iOS 8+
 			// https://bugs.webkit.org/show_bug.cgi?id=136851
-			// In-page `selector#id sibling-combinator selector` fails
+			// In-page `selector#code sibling-combinator selector` fails
 			if ( !el.querySelectorAll( "a#" + expando + "+*" ).length ) {
 				rbuggyQSA.push(".#.+[+~]");
 			}
@@ -1987,7 +1987,7 @@ function matcherFromGroupMatchers( elementMatchers, setMatchers ) {
 
 			// Add elements passing elementMatchers directly to results
 			// Support: IE<9, Safari
-			// Tolerate NodeList properties (IE: "length"; Safari: <number>) matching elements by id
+			// Tolerate NodeList properties (IE: "length"; Safari: <number>) matching elements by code
 			for ( ; i !== len && (elem = elems[i]) != null; i++ ) {
 				if ( byElement && elem ) {
 					j = 0;

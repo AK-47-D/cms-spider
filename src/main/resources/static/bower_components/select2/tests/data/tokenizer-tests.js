@@ -153,7 +153,7 @@ test('createTag returning null does not cut the term', function (assert) {
     assert.equal(
       params.data.id,
       '"first, second"',
-      'The id should have the quotes'
+      'The code should have the quotes'
     );
 
     assert.equal(

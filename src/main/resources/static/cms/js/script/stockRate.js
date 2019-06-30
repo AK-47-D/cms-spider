@@ -1,7 +1,7 @@
 
 $(document).ready(function () {
     $.ajax({
-        url:'/api/stock_index',
+        url:'/builder/stock_index',
         method:'GET',
         data:{
             date_stamp:new Date().Format('yyyy-MM-dd')

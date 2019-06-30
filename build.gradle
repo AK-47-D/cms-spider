@@ -22,9 +22,6 @@ apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 
-group = 'com.ak47.cms'
-version = '0.0.1-SNAPSHOT'
-sourceCompatibility = 1.8
 compileKotlin {
     kotlinOptions.jvmTarget = "1.8"
 }
@@ -58,4 +55,7 @@ dependencies {
     compile 'com.squareup.okhttp3:okhttp:3.8.1'
     compile group: 'net.sourceforge.htmlunit', name: 'htmlunit', version: '2.27'
     compile group: 'org.jsoup', name: 'jsoup', version: '1.10.3'
+
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.9'
+
 }
