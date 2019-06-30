@@ -14,13 +14,7 @@ class CrawTechArticleServiceTest {
     @Autowired lateinit var CrawTechArticleService: CrawTechArticleService
 
     @Test
-    fun testCrawITEye() {
-        CrawTechArticleService.crawITEyeTechArticles(1)
-    }
-
-    @Test
     fun testCrawJianShu() {
-//        CrawTechArticleService.crawJianShuArticles(1,"http://www.jianshu.com/c/498ebcfd27ad")
         val 简书专题URLs = arrayOf(
                 "http://www.jianshu.com/c/498ebcfd27ad",
                 "http://www.jianshu.com/c/c3fe8e7aeb09",

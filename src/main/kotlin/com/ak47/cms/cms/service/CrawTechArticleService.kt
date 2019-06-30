@@ -20,48 +20,18 @@ class CrawTechArticleService {
     @Autowired
     lateinit var JianShuTopicRepository: JianShuTopicRepository
 
-    fun doCrawITEyeTechArticle() {
-        launch(CommonPool) {
-            for (page in 1..20) {
-                crawITEyeTechArticles(page)
-            }
-        }
-
-    }
 
     fun doCrawJianShuTechArticle() {
         launch(CommonPool) {
-            val 简书专题URLs = JianShuTopicRepository.findAll()
+            val topics = JianShuTopicRepository.findAll()
 
-            简书专题URLs.forEach {
+            topics.forEach {
                 for (page in 1..20) {
                     crawJianShuArticles(page, it.url)
                 }
             }
         }
 
-    }
-
-    fun crawITEyeTechArticles(page: Int) {
-        val articleSearchUrl = "http://www.iteye.com/blogs/category/language?page=${page}"
-        val pageHtml = crawlerWebClient.getPage(articleSearchUrl).asXml()
-        println("pageHtml = ${pageHtml}")
-        val document = Jsoup.parse(pageHtml)
-        document.getElementsByClass("content").forEach {
-            var url = it.child(0).child(0).attr("href")
-            var title = it.child(0).child(0).attr("title")
-            var simpleContent = it.child(1).child(1).html()
-            var showContent = getITEyeBlogMainShowContent(url)
-
-            if (TechArticleRepository.countByUrl(url) == 0) {
-                doSaveTechArticle(
-                        url = url,
-                        title = title,
-                        simpleContent = simpleContent,
-                        category = "IT Eye"
-                )
-            }
-        }
     }
 
     private fun doSaveTechArticle(url: String, title: String, simpleContent: String, category: String) {
@@ -77,17 +47,10 @@ class CrawTechArticleService {
         }
     }
 
-    private fun getITEyeBlogMainShowContent(href: String): String {
-        val pageHtml = crawlerWebClient.getPage(href).asXml()
-        val document = Jsoup.parse(pageHtml)
-        return document.getElementsByClass("blog_main")[0].html()
-    }
 
-
-    fun crawJianShuArticles(page: Int, 简书专题URL: String) {
-        val CRAW_API = "${简书专题URL}?order_by=added_at&page=${page}"
+    fun crawJianShuArticles(page: Int, topics: String) {
+        val CRAW_API = "${topics}?order_by=added_at&page=${page}"
         val html = crawlerWebClient.getPage(CRAW_API).asXml()
-        println("简书专题 HTML = ${html}")
         val document = Jsoup.parse(html)
 
         document.getElementsByClass("content").forEach {

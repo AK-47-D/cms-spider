@@ -3,6 +3,7 @@ package com.ak47.cms.cms.controller
 import com.ak47.cms.cms.dao.JianShuTopicRepository
 import com.ak47.cms.cms.entity.JianShuTopic
 import com.ak47.cms.cms.result.Result
+import com.alibaba.fastjson.JSON
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.GetMapping
@@ -20,10 +21,11 @@ class JianShuTopicController {
     fun save(JianShuTopic: JianShuTopic): Result<Boolean> {
         try {
             JianShuTopicRepository.save(JianShuTopic)
-            return Result(true, "", "", true)
+            return Result(data = true, sucesss = true, message = "")
         } catch (e: Exception) {
-            logger.error("save:", e)
-            return Result(false, e.message, "", false)
+            logger.error("JianShuTopic:{}", JSON.toJSONString(JianShuTopic))
+            logger.error("saveJianShuTopic:", e)
+            return Result(data = false, sucesss = false, message = e.message)
         }
     }
 
@@ -32,10 +34,10 @@ class JianShuTopicController {
 
         try {
             JianShuTopicRepository.deleteById(id)
-            return Result(true, "", "", true)
+            return Result(data = true, sucesss = true, message = "")
         } catch (e: Exception) {
-            logger.error("save:", e)
-            return Result(false, e.message, "", false)
+            logger.error("deleteJianShuTopic:", e)
+            return Result(data = false, sucesss = false, message = e.message)
         }
 
     }
@@ -44,10 +46,10 @@ class JianShuTopicController {
     fun list(): Result<List<JianShuTopic>> {
         try {
             val data = JianShuTopicRepository.findAll()
-            return Result(data, "", "", true)
+            return Result(data, message = "", sucesss = true)
         } catch (e: Exception) {
-            logger.error("save:", e)
-            return Result(listOf(), e.message, "", false)
+            logger.error("listJianShuTopic:", e)
+            return Result(data = listOf(), sucesss = false, message = e.message)
         }
 
     }

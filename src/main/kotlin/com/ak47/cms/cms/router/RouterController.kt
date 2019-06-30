@@ -44,7 +44,16 @@ class RouterController {
     @GetMapping("treeDemo")
     fun treeDemo() = "/tree/demo"
 
-    @GetMapping("treeCountry")
-    fun treeCountry() = "/tree/country"
+    @GetMapping("tree")
+    fun treeCountry(category: String, model: Model): String {
+        model.addAttribute("category", category)
+        return "/tree/tree"
+    }
+
+    @GetMapping("treeConsole")
+    fun treeConsole(category: String, model: Model): String {
+        model.addAttribute("category", category)
+        return "/tree/tree_console"
+    }
 
 }

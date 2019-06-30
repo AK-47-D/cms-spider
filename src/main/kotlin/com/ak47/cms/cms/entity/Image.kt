@@ -9,8 +9,6 @@ class Image {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long = -1
-    @Version
-    var version = 0
 
     @Column(length = 1000)
     var category = ""

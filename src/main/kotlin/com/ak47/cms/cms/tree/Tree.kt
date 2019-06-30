@@ -26,8 +26,6 @@ class Tree {
     var gmtCreated = Date()
     var gmtModified = Date()
     var isDeleted = 0
-    @Version
-    var version = 0
 }
 
 /*

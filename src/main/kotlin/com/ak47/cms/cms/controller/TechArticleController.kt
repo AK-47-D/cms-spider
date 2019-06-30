@@ -31,13 +31,6 @@ class TechArticleController {
     }
 
 
-
-    @GetMapping("doCrawITEyeTechArticle")
-    fun doCrawTechArticle():String{
-        CrawTechArticleService.doCrawITEyeTechArticle()
-        return "doCrawITEyeTechArticle Started"
-    }
-
     @GetMapping("doCrawJianShuTechArticle")
     fun doCrawJianShuTechArticle():String{
         CrawTechArticleService.doCrawJianShuTechArticle()

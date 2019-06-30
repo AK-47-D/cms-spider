@@ -1,7 +1,7 @@
 <nav class="navbar navbar-inverse " role="navigation">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="/">I9102</a>
+            <a class="navbar-brand" href="/">iLove</a>
         </div>
         <div>
             <ul class="nav navbar-nav">
@@ -9,7 +9,7 @@
 
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        妹子 <b class="caret"></b>
+                        妹子图 <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
                         <li><a href="sotu_favorite_view">精选收藏</a></li>
@@ -23,10 +23,10 @@
                         树 <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a target="_blank" href="treeCountry">国家</a></li>
-                        <li><a target="_blank" href="treeProgramLanguage">编程语言</a></li>
-                        <li><a target="_blank" href="treeSubject">学科</a></li>
-                        <li><a target="_blank" href="treeIndustry">行业</a></li>
+                        <li><a target="_blank" href="tree?category=COUNTRY">国家</a></li>
+                        <li><a target="_blank" href="tree?category=PROGRAM_LANGUAGE">编程语言</a></li>
+                        <li><a target="_blank" href="tree?category=SUBJECT">学科</a></li>
+                        <li><a target="_blank" href="tree?category=INDUSTRY">行业</a></li>
                     </ul>
                 </li>
 
@@ -87,10 +87,18 @@
                     <ul class="dropdown-menu">
                         <li><a href="doSogouImageCrawJob" target="_blank">抓取搜狗图片</a></li>
                         <li><a href="doHuaBanImageCrawJob" target="_blank">抓取花瓣美女</a></li>
-                        <li><a href="doCrawITEyeTechArticle" target="_blank">抓取ITEye技术文章</a></li>
                         <li><a href="doCrawJianShuTechArticle" target="_blank">抓取简书文章</a></li>
+
                         <li class="divider"></li>
+
                         <li><a href="jianshu_topic" target="_blank">配置简书专题</a></li>
+
+                        <li class="divider"></li>
+
+                        <li><a href="/treeConsole?category=COUNTRY" target="_blank">国家树</a></li>
+                        <li><a href="/treeConsole?category=PROGRAM_LANGUAGE" target="_blank">编程语言</a></li>
+                        <li><a href="/treeConsole?category=SUBJECT" target="_blank">学科树</a></li>
+                        <li><a href="/treeConsole?category=INDUSTRY" target="_blank">行业树</a></li>
                     </ul>
                 </li>
 

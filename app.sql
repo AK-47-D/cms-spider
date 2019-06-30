@@ -9,6 +9,8 @@ SELECT count(*) from image;
 
 select count(*) from tech_article;
 
+desc tech_article;
+
 drop table tree;
 
 select * from tree;
