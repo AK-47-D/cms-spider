@@ -22,9 +22,9 @@
 
     <script>
         var _hmt = _hmt || [];
-        (function () {
+        (function() {
             var hm = document.createElement("script");
-            hm.src = "https://hm.baidu.com/hm.js?865c05a59ea3663dff6be786917ba02b";
+            hm.src = "https://hm.baidu.com/hm.js?2213885fc35faef4a4e7afffef5e655c";
             var s = document.getElementsByTagName("script")[0];
             s.parentNode.insertBefore(hm, s);
         })();
